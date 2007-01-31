@@ -1,0 +1,14 @@
+.messagelistspacer	{ height: 1ex; }
+.messagelistcreator	{ text-align:    left; font-weight: bold; }
+.messagelistcreated	{ text-align:   right; font-weight: bold; }
+.messagelisttext	{ text-align: justify; padding-left: 1em; }
+
+.list			{ border-bottom: solid 1px navy; }
+.messagelistcreator	{ border-top: solid 1px navy; }
+.messagelistcreated	{ border-top: solid 1px navy; }
+td.admin		{ border-top: solid 1px navy; }
+
+.navigator		{ text-align: right; }
+.navigatorpagehead	{ font-weight: bold; }
+.navigatorpageself	{ }
+.navigatorpagelink	{ }

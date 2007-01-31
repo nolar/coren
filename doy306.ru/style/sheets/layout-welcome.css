@@ -1,0 +1,63 @@
+table.layoutback1	{ height: 100%; width: 100%; position: absolute; left: 0px; top: 0px; }
+table.layoutback2	{ height: 100%; width: 100%; }
+table.layoutback3	{ height: 100%; width: 100%; }
+table.layoutback1	{ background-position: left top; background-repeat:  repeat-x; background-image: url(/style/images/common/gradient.png); }
+table.layoutback2	{ background-position: left top; background-repeat:  repeat-x; background-image: url(/style/images/common/clouds.png); }
+table.layoutback3	{ }
+table.layoutmain	{ height: 100%; width: 100%; }
+
+td.topspace		{ height: 30px; }
+td.layout1		{ width: 1px; background-position: right bottom; background-repeat: no-repeat; background-image: url(/style/images/welcome/space-l.png); }
+td.layout5		{ width: 1px; background-position: left  bottom; background-repeat: no-repeat; background-image: url(/style/images/welcome/space-r.png); }
+td.layout2		{ width: 1px; }
+td.layout4		{ width: 1px; }
+td.layout3		{ vertical-align: top; }
+
+
+
+table.layout1		{ table-layout: fixed; height: 100%; width: 210px; }
+td.layout1top		{ height: 89px; background-position: right bottom; background-repeat: no-repeat; background-image: url(/style/images/welcome/flag-l.png); }
+td.layout1rez		{ text-align: center; vertical-align: bottom; padding-top: 50px; padding-bottom: 200px; }
+
+table.layout5		{ table-layout: fixed; height: 100%; width:  65px; }
+td.layout5top		{ height: 89px; background-position: left  bottom; background-repeat: no-repeat; background-image: url(/style/images/welcome/flag-r.png); }
+td.layout5rez		{ text-align: center; vertical-align: top   ; padding-top: 50px; padding-bottom: 200px; }
+
+
+
+table.layout2		{ table-layout: fixed; height: 100%; width: 29px; }
+td.layout2top		{ height: 408px; background-position: left     top; background-repeat: no-repeat; background-image: url(/style/images/welcome/post-lt.png); }
+td.layout2rez		{                background-position: left  center; background-repeat:  repeat-y; background-image: url(/style/images/welcome/post-lm.png); }
+td.layout2bot		{ height: 242px; background-position: left  bottom; background-repeat: no-repeat; background-image: url(/style/images/welcome/post-lb.png); }
+
+table.layout4		{ table-layout: fixed; height: 100%; width: 27px; }
+td.layout4top		{ height: 396px; background-position: right    top; background-repeat: no-repeat; background-image: url(/style/images/welcome/post-rt.png); }
+td.layout4rez		{                background-position: right center; background-repeat:  repeat-y; background-image: url(/style/images/welcome/post-rm.png); }
+td.layout4bot		{ height: 254px; background-position: right bottom; background-repeat: no-repeat; background-image: url(/style/images/welcome/post-rb.png); }
+
+
+
+table.layout3		{ width: 100%; }
+td.layout3tit		{ }
+td.layout3ray		{ }
+td.layout3cap		{ }
+td.layout3rez		{ padding-left: 1em; padding-right: 1em; }
+
+
+
+table.layout3tit	{ width: 100%; height: 98px; }
+td.layout3titL		{ background-position: left   top; background-repeat:  repeat-x; background-image: url(/style/images/welcome/title-l.png); }
+td.layout3titR		{ background-position: right  top; background-repeat:  repeat-x; background-image: url(/style/images/welcome/title-r.png); }
+td.layout3titC		{ background-position: center top; background-repeat: no-repeat; background-image: url(/style/images/welcome/title-c.png); width: 505px; text-align: center; vertical-align: center; }
+table.layout3titL	{ table-layout: fixed; width: 1px; height: 100%; }
+table.layout3titR	{ table-layout: fixed; width: 1px; height: 100%; }
+
+table.layout3ray	{ width: 100%; height: 20px; }
+td.layout3rayW		{ background-position: center top; background-repeat:  repeat-y; background-image: url(/style/images/welcome/holders.png); }
+
+table.layout3cap	{ width: 100%; height: 49px; }
+td.layout3capL		{ background-position: right  top; background-repeat: no-repeat; background-image: url(/style/images/welcome/board-l.png ); }
+td.layout3capR		{ background-position: left   top; background-repeat: no-repeat; background-image: url(/style/images/welcome/board-r.png); }
+td.layout3capC		{ background-position: center top; background-repeat:  repeat-x; background-image: url(/style/images/welcome/board-c.png); width: 300px; text-align: center; vertical-align: center; }
+table.layout3capL	{ table-layout: fixed; width: 5px; height: 100%; }
+table.layout3capR	{ table-layout: fixed; width: 5px; height: 100%; }

@@ -1,0 +1,67 @@
+.articlelistspacer	{ height: 1ex; }
+.articleliststamp	{ text-align:    left; font-weight: bold; width: 1px; }
+.articlelistheadline	{ text-align:    left; font-weight: bold; width: 100%; padding-left: 1ex; }
+.articlelistpublishless	{ text-align:    left; padding-left: 1em; color: red; }
+.articlelistannounce	{ text-align: justify; padding-left: 1em; }
+
+.articleviewstamp	{ text-align:    left; font-weight: bold; width: 1px; }
+.articleviewheadline	{ text-align:    left; font-weight: bold; padding-left: 1ex; }
+.articleviewpublishless	{ text-align:    left; padding-left: 1em; color: red; }
+.articleviewfulltext	{ text-align: justify; padding-left: 1em; }
+
+.categorylistspacer	{ height: 1ex; }
+.categorylistname	{ text-align:    left; font-weight: bold; }
+.categorylistcomment	{ text-align: justify; padding-left: 1em; }
+
+.categoryviewname	{ text-align:    left; font-weight: bold; width: 1px; }
+.categoryviewcomment	{ text-align: justify; padding-left: 1em; }
+
+.list			{ border-bottom: solid 1px navy; }
+.articleliststamp	{ border-top: solid 1px navy; }
+.articlelistheadline	{ border-top: solid 1px navy; }
+.categorylistname	{ border-top: solid 1px navy; }
+td.admin		{ border-top: solid 1px navy; }
+
+.published		{ color: green; }
+.unpublished		{ color:   red; }
+
+
+
+.navigator		{ text-align: center; }
+.navigatorpagehead	{ font-weight: bold; }
+.navigatorpageself	{ }
+.navigatorpagelink	{ }
+
+
+
+.linklist		{ }
+.linklistorder		{ text-align: right; font-weight: bold; width: 1px; }
+.linklisthref		{ text-align:  left; }
+
+.filelist		{ }
+.filelistorder		{ text-align: right; font-weight: bold; width: 1px; }
+.filelisthref		{ text-align:  left; }
+
+.pictlist		{ }
+.pictlistorder		{ text-align: right; font-weight: bold; width: 1px; }
+.pictlisthref		{ text-align:  left; }
+
+.notelist		{ }
+.notelistspacer		{ height: 1ex; }
+.notelistauthor		{ text-align:    left; font-weight: bold; }
+.noteliststamp		{ text-align:   right; font-weight: bold; }
+.notelisttext		{ text-align: justify; padding-left: 1em; }
+.notelistreply		{ text-align: justify; padding-left: 1em; color: maroon; }
+
+.notelist		{ border-bottom: solid 1px navy; }
+.notelistauthor		{ border-top: solid 1px navy; }
+.noteliststamp		{ border-top: solid 1px navy; }
+
+.linkmass		{ border-bottom: solid 1px navy; }
+.filemass		{ border-bottom: solid 1px navy; }
+.pictmass		{ border-bottom: solid 1px navy; }
+.notemass		{ border-bottom: solid 1px navy; }
+.linkmassline td	{ border-top: solid 1px navy; }
+.filemassline td	{ border-top: solid 1px navy; }
+.pictmassline td	{ border-top: solid 1px navy; }
+.notemassline td	{ border-top: solid 1px navy; }

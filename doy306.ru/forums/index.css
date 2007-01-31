@@ -1,0 +1,17 @@
+.forumlistspacer	{ height: 1ex; }
+.forumlistname		{ text-align:    left; font-weight: bold; }
+.forumlistcomment	{ text-align: justify; padding-left: 2em; font-size: 80%; }
+
+.topiclistspacer	{ height: 1ex; }
+.topiclistname		{ text-align:    left; font-weight: bold; }
+.topiclistcomment	{ text-align: justify; padding-left: 2em; font-size: 80%; }
+
+.list			{ border-bottom: solid 1px navy; }
+.forumlistname		{ border-top: solid 1px navy; }
+.topiclistname		{ border-top: solid 1px navy; }
+td.admin		{ border-top: solid 1px navy; }
+
+.navigator		{ text-align: right; }
+.navigatorpagehead	{ font-weight: bold; }
+.navigatorpageself	{ }
+.navigatorpagelink	{ }

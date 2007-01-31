@@ -1,0 +1,1 @@
+override distfiles = .htaccess Makefile Makefile.files coren.phps engines/ modules/ modules/account_information_0.phps modules/account_information_0_mysql.phps

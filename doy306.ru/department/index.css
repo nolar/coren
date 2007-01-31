@@ -1,0 +1,33 @@
+th			{ vertical-align: top; text-align: center; }
+td			{ vertical-align: top; }
+td.employeephoto	{ text-align: center; width: 1px; }
+td.employeeinfo		{ text-align:   left; }
+
+.form .employeefio		{ display: block; font-weight: bold; }
+.form .employeeposition	{ display: block; padding-left: 2em; }
+.form .employeequalify	{ display: block; padding-left: 2em; }
+
+.view .employeephoto	{ display: inline; }
+.view .employeefio	{ display: block; font-weight: bold; }
+.view .employeeposition	{ display: block; padding-left: 2em; }
+.view .employeequalify	{ display: block; padding-left: 2em; }
+.view .employeebirthday	{ display: block; padding-left: 2em; }
+.view .employeecomment	{ display: block; padding-left: 0em; margin-top: 1em; }
+
+.navigator		{ text-align: center; }
+.navigatorpageself	{ font-weight: bold; }
+.navigatorpagelink	{ }
+
+
+
+
+div.admin		{ text-align: center; }
+td.admin		{ text-align: center; width: 1px; }
+th.admin		{ text-align: center; width: 1px; }
+
+
+
+.hint			{ font-size: 80%; }
+
+
+.buttons		{ text-align: center; }

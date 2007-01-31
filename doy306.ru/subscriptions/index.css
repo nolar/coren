@@ -1,0 +1,13 @@
+.subscriptionlistspacer		{ height: 1ex; }
+.subscriptionlistname		{ text-align:    left; font-weight: bold; }
+.subscriptionlistcomment	{ text-align: justify; }
+
+.subscriptionviewname		{ text-align:    left; font-weight: bold; }
+.subscriptionviewcomment	{ text-align: justify; }
+
+
+
+.navigator		{ text-align: right; }
+.navigatorpagehead	{ font-weight: bold; }
+.navigatorpageself	{ }
+.navigatorpagelink	{ }

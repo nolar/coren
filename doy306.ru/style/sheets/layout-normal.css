@@ -1,0 +1,25 @@
+table.layoutback1	{ height: 100%; width: 100%; position: absolute; left: 0px; top: 0px; }
+table.layoutback2	{ height: 100%; width: 100%; }
+table.layoutback3	{ height: 100%; width: 100%; }
+table.layoutback1	{ background-position: left top; background-repeat:  repeat-x; background-image: url(/style/images/common/gradient.png); }
+table.layoutback2	{ background-position: left top; background-repeat:  repeat-x; background-image: url(/style/images/common/clouds.png  ); }
+table.layoutback3	{ background-position: left top; background-repeat: no-repeat; background-image: url(/style/images/common/rainbow.png ); }
+/*
+//background-image: none; //filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/style/images/common/rainbow2.png',sizingMethod='crop');
+*/
+table.layoutmain	{ height: 100%; width: 100%; }
+
+td.layout1		{ width: 1px; background-position: left top; background-repeat: no-repeat; background-image: url(/style/images/normal/tree.png); }
+/*
+//background-image: none; //filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/style/images/normal/tree2.png',sizingMethod='crop'); 
+*/
+td.layout2		{ }
+
+
+
+table.layout1		{ table-layout: fixed; height: 100%; width: 210px; }
+td.layout1rez		{ text-align: center; vertical-align: top; padding-top: 200px; padding-bottom: 250px; }
+
+table.layout2		{ height: 100%; width: 100%; }
+td.layout2top		{ height: 30px; text-align:   right; vertical-align: top; padding-left: 10px; padding-right: 10px; }
+td.layout2rez		{               text-align: justify; vertical-align: top; padding-left:  1em; padding-right:  1em; }

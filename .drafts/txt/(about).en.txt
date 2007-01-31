@@ -1,0 +1,38 @@
+﻿
+DESCRIPTION
+===========
+This directory ("txt") should contain text files with some basic concepts,
+technologies, use cases, coding styles and other aspects of the coren
+and of the process of its development as a whole (but not regarding some
+individual files; in such case just write a comment in those files).
+
+PURPOSE
+=======
+Files from this directory could later be used as parts of a documentation.
+
+ENCODING
+========
+Natural language text files within this directory must be encoded as UTF-8.
+This is a requirement for better versioning of text files (usual two-byte
+Unicode breaks CR/LF-idyll because it is almost binary format). Structural
+(formal) texts must be in ASCII (code 0-127 only).
+
+FILENAMES
+=========
+All files must have a ".txt" as main extension. Natural language texts
+must have a country/language code as a second extension. For example,
+this file is named "(about).en.txt". Structural (formal) texts should not
+have second extension, since they have no national characters in them.
+There can be both natural language and structural texts with the same
+base name of a file - this is not an error.
+
+SPECIAL FILES
+=============
+File "(todo)" is a very special case: it is very dynamic and changes too
+frequently. So it should not belong here, but rather it must be an external
+project (probably as part of a bug/issue tracking system). But for now this
+file is part of "txt" folder and will be here until that system will be
+built/installed. After that all entries from "(todo)" file must be moved
+to that system and the whole file must be deleted from this folder.
+This paragraph too, of course.
+

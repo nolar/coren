@@ -1,0 +1,65 @@
+.departmentlistspacer		{ height: 1ex; }
+.departmentlistname		{ text-align: left; font-weight: bold; }
+
+.departmentlistname		{ text-align: left; font-weight: bold; }
+.departmentviewcomment		{ text-align: justify; padding-left: 1em; }
+
+
+
+.employeelistspacer		{ height: 1ex; }
+.employeelistphoto		{ text-align: center; width: 1px; }
+.employeelistinfo		{ text-align:   left; }
+.employeelistfio		{ font-weight: bold; }
+.employeelistdepartment		{ padding-left: 2em; }
+.employeelistposition		{ padding-left: 2em; }
+.employeelistqualify		{ padding-left: 2em; }
+
+.employeeviewphoto		{ text-align: center; width: 1px; }
+.employeeviewinfo		{ text-align:   left; }
+.employeeviewfio		{ font-weight: bold; }
+.employeeviewdepartment		{ padding-left: 2em; }
+.employeeviewposition		{ padding-left: 2em; }
+.employeeviewqualify		{ padding-left: 2em; }
+.employeeviewbirthday		{ padding-left: 2em; }
+.employeeviewcomment		{ text-align: justify; padding-left: 0em; margin-top: 1em; }
+
+
+
+.navigator			{ text-align: center; }
+.navigatorpagehead		{ font-weight: bold; }
+.navigatorpageself		{ }
+.navigatorpagelink		{ }
+
+
+
+.linklist		{ }
+.linklistorder		{ text-align: right; font-weight: bold; width: 1px; }
+.linklisthref		{ text-align:  left; }
+
+.filelist		{ }
+.filelistorder		{ text-align: right; font-weight: bold; width: 1px; }
+.filelisthref		{ text-align:  left; }
+
+.pictlist		{ }
+.pictlistorder		{ text-align: right; font-weight: bold; width: 1px; }
+.pictlisthref		{ text-align:  left; }
+
+.notelist		{ }
+.notelistspacer		{ height: 1ex; }
+.notelistauthor		{ text-align:    left; font-weight: bold; }
+.noteliststamp		{ text-align:   right; font-weight: bold; }
+.notelisttext		{ text-align: justify; padding-left: 1em; }
+.notelistreply		{ text-align: justify; padding-left: 1em; color: maroon; }
+
+.notelist		{ border-bottom: solid 1px navy; }
+.notelistauthor		{ border-top: solid 1px navy; }
+.noteliststamp		{ border-top: solid 1px navy; }
+
+.linkmass		{ border-bottom: solid 1px navy; }
+.filemass		{ border-bottom: solid 1px navy; }
+.pictmass		{ border-bottom: solid 1px navy; }
+.notemass		{ border-bottom: solid 1px navy; }
+.linkmassline td	{ border-top: solid 1px navy; }
+.filemassline td	{ border-top: solid 1px navy; }
+.pictmassline td	{ border-top: solid 1px navy; }
+.notemassline td	{ border-top: solid 1px navy; }

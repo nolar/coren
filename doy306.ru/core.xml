@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf8" ?>
+<coren:configuration xmlns:coren="http://coren.numeri.net/namespaces/coren/configuration/">
+
+<!-- CONFIGURATION -->
+
+<coren:rts-verbosity>1</coren:rts-verbosity>
+<coren:rts-prefix><![CDATA[<plaintext>]]></coren:rts-prefix>
+<coren:rts-suffix><![CDATA[]]></coren:rts-suffix>
+
+<coren:load-class-root>E:/internet/coren/.coren/</coren:load-class-root>
+<coren:load-class-path>tools/			</coren:load-class-path>
+<coren:load-class-path>modules/			</coren:load-class-path>
+<coren:load-class-path>modules/event/		</coren:load-class-path>
+<coren:load-class-path>modules/identify/	</coren:load-class-path>
+<coren:load-class-path>modules/utility/		</coren:load-class-path>
+<coren:load-class-path>modules/database/	</coren:load-class-path>
+<!--
+<coren:load-class-file coren:class="php_timezone_0">abc/def.php</coren:load-class-file>
+-->
+<coren:load-class-file coren:class="unexistent_0">abc/def.php</coren:load-class-file>
+
+<coren:response-position>top</coren:response-position>
+<coren:response-prefix></coren:response-prefix>
+<coren:response-suffix></coren:response-suffix>
+
+<coren:default-database coren:name="__default_db__" />
+<coren:template-of-name coren:name="autocreated_module_%s" />
+<coren:prefetch-modules/>
+<coren:prefetch-handlers/>
+<!--
+-->
+
+
+
+<!-- XSLT PARAMETERS -->	
+
+<coren:parameter coren:name="title"      >Sample Site N1</coren:parameter>
+<coren:parameter coren:name="admin_email">nolar2006@mail.ru</coren:parameter>
+
+
+
+<!-- MODULES -->
+
+<coren:module coren:name="__default_db__"	coren:class="database_mysql_0">
+	<host>localhost</host>
+	<port></port>
+	<database>coren-doy306</database>
+	<username>coren-doy306</username>
+	<password>iria</password>
+	<charset>utf8</charset>
+	<persistent/>
+</coren:module>
+
+<coren:module coren:name="php_timezone"		coren:class="php_timezone_0"	coren:prefetch="always">
+	<required/>
+	<timezone>Asia/Krasnoyarsk</timezone>
+</coren:module>
+<coren:module coren:name="php_locale"		coren:class="php_locale_0"	coren:prefetch="never">
+	<required/>
+	<category>LC_ALL</category>
+	<locale>C</locale>
+</coren:module>
+
+<coren:module coren:name="autocontent"		coren:class="event_by_http_path_regex_0">
+	<stop-slot>main</stop-slot>
+	<event>content-/%s/</event>
+	<regex>|^/(.+?)(/?)$|six</regex>
+	<index>1</index>
+</coren:module>
+<coren:module coren:name="autocontent404"	coren:class="event_unconditional_0">
+	<stop-slot>main</stop-slot>
+	<event>content404</event>
+</coren:module>
+
+<coren:module coren:name="error404"		coren:class="http_status_code_0">
+	<code>404</code>
+	<text>Not found</text>
+</coren:module>
+
+<coren:module coren:name="xslt_from_files"	coren:class="xslt_filesystem_hierarchy_0">
+	<dir>
+		<path>.xslt</path>
+		<absolute>0</absolute>
+		<required>0</required>
+		<automake>0</automake>
+	</dir>
+</coren:module>
+
+<coren:module coren:name="cache1"		coren:class="cache_directory_serialized_0">
+	<dir>
+		<path>ABC</path>
+		<absolute>0</absolute>
+		<required>1</required>
+		<automake>1</automake>
+	</dir>
+	<need-locks/>
+</coren:module>
+<coren:module coren:name="cache2"		coren:class="cache_memory_0">
+</coren:module>
+
+<coren:module coren:name="message_flusher"	coren:class="message_queue_flush_0">
+	<prefix>mq</prefix>
+	<limit_per_call>3</limit_per_call>
+</coren:module>
+<coren:module coren:name="message_injecter"	coren:class="message_queue_inject_0">
+	<prefix>mi</prefix>
+</coren:module>
+<coren:module coren:name="message_mailer"	coren:class="message_mail_php_0">
+	<prefix>ms</prefix>
+</coren:module>
+
+<coren:module coren:name="cookie(sesss)"	coren:class="http_cookie_0">
+	<cookie_name>sesss</cookie_name>
+	<autolock>1</autolock>
+</coren:module>
+
+<coren:module coren:name="account_information"	coren:class="account_information_0">
+</coren:module>
+<coren:module coren:name="account_credentials"	coren:class="account_credentials_0">
+</coren:module>
+<coren:module coren:name="session_credo"	coren:class="requisites_request_direct_0">
+	<order>GPC</order>
+</coren:module>
+<coren:module coren:name="session_context"	coren:class="requisites_request_direct_0">
+	<order>G</order>
+</coren:module>
+<coren:module coren:name="session_genid"	coren:class="generator_random_0">
+	<minlength>3</minlength>
+	<maxlength>3</maxlength>
+	<alphabet>abcdef</alphabet>
+	<format>[%s]</format>
+</coren:module>
+
+<coren:module coren:name="session_start"	coren:class="identify_session_start_0">
+	<trycount>1</trycount>
+	<name_for_session_start_failed>identify-session-start-failure</name_for_session_start_failed>
+</coren:module>
+<coren:module coren:name="session_close"	coren:class="identify_session_close_0">
+</coren:module>
+<coren:module coren:name="session_detect"	coren:class="identify_session_detect_0">
+</coren:module>
+<coren:module coren:name="account_detect"	coren:class="identify_account_detect_0">
+</coren:module>
+
+<coren:module coren:name="account_privileges"	coren:class="identify_account_privileges_0">
+</coren:module>
+<coren:module coren:name="account_touch"	coren:class="identify_account_touch_0">
+</coren:module>
+<coren:module coren:name="session_expire"	coren:class="identify_session_expire_0">
+</coren:module>
+<coren:module coren:name="session_touch"	coren:class="identify_session_touch_0">
+</coren:module>
+<coren:module coren:name="session_get"		coren:class="requisites_request_mapped_0">
+	<order>C</order>
+	<map>identifier=sesss</map>
+</coren:module>
+
+
+
+<!-- EVENT HANDLERS -->
+
+<coren:handler coren:event="coren!stage(init)"				coren:module="php_timezone"		coren:method="set"		/>
+<coren:handler coren:event="coren!stage(init)"				coren:module="php_locale"		coren:method="set"		/>
+<coren:handler coren:event="coren!stage(prework)"			coren:module="session_expire"		coren:method="expire"		/>
+<coren:handler coren:event="coren!stage(prework)"			coren:module="account_detect"		coren:method="identify"		/>
+<coren:handler coren:event="coren!stage(content)"			coren:module='autocontent'		coren:method='check'		/>
+<coren:handler coren:event="coren!stage(content)"			coren:module='autocontent404'		coren:method='check'		/>
+<coren:handler coren:event="coren!stage(epiwork)"			coren:module='freshness_manager'	coren:method='send'		/>
+<coren:handler coren:event="coren!stage(epiwork)"			coren:module='xslt_from_files'		coren:method='on_populate_xslt'	/>
+
+<coren:handler coren:event="content404"					coren:module="error404"			coren:method="send"		/>
+
+<coren:handler coren:event="account.cache.get"				coren:module="cache1"			coren:method="get"		/>
+<coren:handler coren:event="account.cache.set"				coren:module="cache1"			coren:method="set"		/>
+
+<coren:handler coren:event="message.queue.inject"			coren:module='message_injecter'		coren:method='inject'		/>
+<coren:handler coren:event="message.queue.flush!send"			coren:module='message_mailer'		coren:method='send'		/>
+<coren:handler coren:event="content-/flush/"				coren:module='message_flusher'		coren:method='flush'		/>
+
+<coren:handler coren:event="identify.account.detect?information"	coren:module='account_information'	coren:method='information'	/>
+<coren:handler coren:event="identify.session.start?acknowledge"		coren:module='account_credentials'	coren:method='verify'		/>
+
+<coren:handler coren:event="identify.session.start?identifier"		coren:module='session_genid'		coren:method='make_format'	/>
+<coren:handler coren:event="identify.session.start?credentials"		coren:module='session_credo'		coren:method='retrieve'		/>
+<coren:handler coren:event="identify.session.start?context"		coren:module='session_context'		coren:method='retrieve'		/>
+<coren:handler coren:event="identify.session.close?context"		coren:module='session_context'		coren:method='retrieve'		/>
+<coren:handler coren:event="identify.session.close?identifier"		coren:module='session_detect'		coren:method='get_identifier'	/>
+<coren:handler coren:event="identify.account.detect?identifier"		coren:module='session_detect'		coren:method='detect'		/>
+<coren:handler coren:event="identify.account.detect!successed"		coren:module='account_privileges'	coren:method='assign'		/>
+<coren:handler coren:event="identify.session.detect!successed"		coren:module='session_touch'		coren:method='touch'		/>
+
+<coren:handler coren:event="content-/enter/"				coren:module='session_start'		coren:method='start'		/>
+<coren:handler coren:event="content-/leave/"				coren:module='session_close'		coren:method='close'		/>
+
+<coren:handler coren:event="identify.session.detect?identifier"		coren:module='session_get'		coren:method='retrieve'		/>
+<coren:handler coren:event="identify.session.start!successed"		coren:module='cookie(sesss)'		coren:method='set'		><coren:map coren:srckey="identifier" coren:dstkey="value"/></coren:handler>
+<coren:handler coren:event="identify.session.start!successed"		coren:module='session_close'		coren:method='close'		/>
+<coren:handler coren:event="identify.session.close!successed"		coren:module='cookie(sesss)'		coren:method='rst'		/>
+<coren:handler coren:event="identify.session.detect!failed"		coren:module='cookie(sesss)'		coren:method='rst'		/>
+<coren:handler coren:event="identify.account.detect!failed"		coren:module='cookie(sesss)'		coren:method='rst'		/>
+
+</coren:configuration>

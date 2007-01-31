@@ -1,0 +1,23 @@
+.mailerlist			{}
+
+.mailerrowsuccess 		{ color: green ; }
+.mailerrowrefused 		{ color: red   ; }
+.mailerrowdelayed 		{ color: yellow; }
+
+.mailerabonent			{ text-align:  right; width: 1px; }
+.mailerletter			{ text-align:  right; width: 1px; }
+.mailerstatus			{ text-align: center; width: 1px; }
+.mailernote			{ text-align:   left; }
+
+th.mailerabonent		{}
+th.mailerletter			{}
+th.mailerstatus			{}
+th.mailernote			{}
+
+td.mailerabonent		{}
+td.mailerletter			{}
+td.mailerstatus			{}
+td.mailernote			{}
+
+
+

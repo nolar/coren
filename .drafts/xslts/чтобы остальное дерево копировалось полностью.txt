@@ -1,0 +1,30 @@
+<!-- три магических шаблона -->
+
+
+
+<!-- 1. общий -->
+<xsl:template match="*">
+    <xsl:copy>
+        <xsl:apply-templates select="@*" />
+        <xsl:apply-templates/>
+    </xsl:copy>
+</xsl:template>
+
+
+
+<!-- 2. для текста -->
+<xsl:template match="text()">
+    <xsl:value-of select="." disable-output-escaping="yes"/>
+</xsl:template>
+
+
+
+<!-- 3. для тегов и аттрибутов -->
+<xsl:template match="@*|node()">
+    <xsl:copy>
+        <xsl:apply-templates select="@*|node()"/>
+    </xsl:copy>
+</xsl:template>
+
+
+

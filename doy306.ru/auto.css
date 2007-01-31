@@ -1,0 +1,90 @@
+table.view			{ border-collapse: collapse; }
+table.view tr.band th		{ border: dashed red; border-width: 1px 0px 0px 0px; empty-cells: show; }
+
+table.view tr.pseudo td		{ border-color: #eeeeee   ; background-color: #eeeeee  ; }
+table.view tr.normal td		{ border-color: #eeeeee   ; background-color: #eeeeee  ; }
+table.view tr.insert td		{ border-color: green     ; background-color: green    ; }
+table.view tr.update td		{ border-color: lightblue ; background-color: lightblue; }
+table.view tr.delete td		{ border-color: #993333   ; background-color: #993333  ; }
+table.view tr.orphan td		{ border-color: gray      ; background-color: gray     ; }
+
+table.view tr td.modified	{ border-color: blue; }
+table.view tr td.selected	{ border-color: red ; }
+
+
+
+table.view tr .rowkey		{ width:  33px; text-align: right; padding-right: 0.5ex; }
+table.view tr .rowdel		{ width:  33px; }
+table.view tr .rowcfg		{ width: 150px; }
+table.view tr td.codename input	{ width: 233px; }
+table.view tr td.executor select{ width: 233px; }
+table.view tr td.database select{ width: 100px; }
+table.view tr td.priority input	{ width:  50px; text-align: right; }
+table.view tr td.disabled input	{ width:  33px; }
+
+table.view td.grantcodename	{ text-align: justify; vertical-align: top; font-weight: bold; }
+table.view td.grantcomment	{ text-align: justify; vertical-align: top; padding-left: 1ex; padding-right: 1ex; }
+table.view td.grantmodify	{ text-align: center ; vertical-align: top; padding-left: 1ex; padding-right: 1ex; }
+table.view td.grantremove	{ text-align: center ; vertical-align: top; padding-left: 1ex; padding-right: 1ex; }
+
+table.view td.groupcodename	{ text-align: justify; vertical-align: top; font-weight: bold; }
+table.view td.groupcomment	{ text-align: justify; vertical-align: top; padding-left: 1ex; padding-right: 1ex; }
+table.view td.groupmodify	{ text-align: center ; vertical-align: top; padding-left: 1ex; padding-right: 1ex; }
+table.view td.groupremove	{ text-align: center ; vertical-align: top; padding-left: 1ex; padding-right: 1ex; }
+
+table.view td.accountlogname	{ text-align: left   ; vertical-align: top; font-weight: bold; }
+table.view td.accountstatus	{ text-align: center ; vertical-align: top; padding-left: 1ex; padding-right: 1ex; }
+table.view td.accountcreated	{ text-align: left   ; vertical-align: top; padding-left: 1ex; padding-right: 1ex; }
+table.view td.accounttouched	{ text-align: left   ; vertical-align: top; padding-left: 1ex; padding-right: 1ex; }
+table.view td.accountmodify	{ text-align: center ; vertical-align: top; padding-left: 1ex; padding-right: 1ex; }
+table.view td.accountremove	{ text-align: center ; vertical-align: top; padding-left: 1ex; padding-right: 1ex; }
+
+
+td.title		{ text-align: right; vertical-align: top; padding-right: 1ex; width: 1px; }
+td.input		{ text-align: left ; vertical-align: top; }
+td.error		{ text-align: right; vertical-align: top; color: red; font-size: 80%; padding-bottom: 1ex; }
+td.hint			{ text-align: right; vertical-align: top; color: grey; font-size: 75%; padding-bottom: 1ex; }
+td.input .full		{ width: 100%; }
+td.glue			{ height: 1em; }
+td.section		{ color: #000066; font-weight: bold; font-size: 120%; border-style: dashed; border-width: 1px 0px 0px 0px; border-color: #000066; }
+td.iteminfo		{ text-align: center; vertical-align: top; }
+td.itemview		{ text-align: center; vertical-align: top; }
+
+
+
+
+.headline	{ font-weight: bold; }
+
+
+
+
+
+table.list			{ }
+table.list td.headline		{ text-align: left   ; vertical-align: top; font-weight: bold; }
+table.list td.announce		{ text-align: justify; vertical-align: top; padding-left: 1em; }
+table.list td.announce a	{ font-weight: bold; }
+table.list td.modify		{ width: 1px; vertical-align: top; }
+table.list td.remove		{ width: 1px; vertical-align: top; }
+table.list td.glue		{ height: 1em; }
+
+/*
+table.list td			{ border: solid 3px;  }
+table.list th			{ border: none; }
+*/
+
+table.form td.title		{ text-align: right; vertical-align: top; padding-right: 1ex; }
+table.form td.input		{ text-align: left ; vertical-align: top; }
+table.form td.input .full	{ width: 100%; }
+table.form td.glue		{ height: 1em; }
+table.form td.section		{ color: #000066; font-weight: bold; font-size: 120%; border-style: dashed; border-width: 1px 0px 0px 0px; border-color: #000066; }
+table.form td.iteminfo		{ text-align: center; vertical-align: top; }
+table.form td.itemview		{ text-align: center; vertical-align: top; }
+
+
+.fulltext		{ text-align: justify; }
+.viewlinkorder		{ text-align: right; vertical-align: top; font-weight: bold; padding-right: 1ex; width: 1px; }
+.viewlinkref		{ text-align: left ; vertical-align: top;  }
+.viewfileorder		{ text-align: right; vertical-align: top; font-weight: bold; padding-right: 1ex; width: 1px; }
+.viewfileref		{ text-align: left ; vertical-align: top;  }
+.viewpictorder		{ text-align: right; vertical-align: top; font-weight: bold; padding-right: 1ex; width: 1px; }
+.viewpictref		{ text-align: left ; vertical-align: top;  }

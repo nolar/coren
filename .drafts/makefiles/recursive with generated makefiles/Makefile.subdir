@@ -1,0 +1,82 @@
+#################################################################################
+#										#
+# COREN (a) nolar@numeri.net							#
+# ¬спомогательный makefile, на который ссылаютс€ сгенерированные makefile'ы.	#
+#										#
+#################################################################################
+#
+include $(rootpath)Makefile.config
+ifneq (,$(wildcard Makefile.local))
+include Makefile.local
+endif
+include $(rootpath)Makefile.common
+#
+#################################################################################
+#
+# ¬ычисление списка файлов разного типа и назначени€.
+#
+# phpsources - все .phps-файлы, которые есть в каталоге.
+# phptargets - соответствующие им имена .php-файлов, даже если таковых нет.
+# phpbuilded - все существующие .php-файлы, дл€ которых есть исходный phps-файл.
+# phporphans - все существующие .php-файлы, дл€ которых нет исходного phps-файла.
+# trashfiles - все существующие файла каталога, сочтенные мусорными.
+# distfiles  - все существующие файлы каталога, сочтенные дистрибутивными.
+# okeyfiles  - все существующие файлы каталога, сочтенные не-мусорными.
+# nonefiles  - все существующие файлы каталога, сочтенные не-дистрибутивными.
+#
+phpsources := $(wildcard *.phps)
+phptargets := $(patsubst %.phps,%.php,$(phpsources))
+phpbuilded := $(filter     $(phptargets),$(wildcard *.php))
+phporphans := $(filter-out $(phptargets),$(wildcard *.php))
+trashfiles := $(wildcard $(trashlist))
+distfiles  := $(wildcard $(distlist) )
+okeyfiles  := $(filter-out $(trashfiles),$(wildcard *))
+nonefiles  := $(filter-out $(distfiles) ,$(wildcard *))
+#
+#################################################################################
+#
+# ќсновные действи€ рекурсивных целей с точки зрени€ каталога с исходными кодами.
+#
+do-clean:
+ifneq (,$(phpbuilded))
+	-$(RM) -- $(phpbuilded)
+endif
+#
+#
+#
+do-veryclean:
+ifneq (,$(phpbuilded))
+	-$(RM) -- $(phpbuilded)
+endif
+ifneq (,$(trashfiles))
+	-$(RM) -r -- $(trashfiles)
+endif
+#
+#
+#
+do-distclean:
+ifneq (,$(phpbuilded))
+	-$(RM) -- $(phpbuilded)
+endif
+ifneq (,$(trashfiles))
+	-$(RM) -r -- $(trashfiles)
+endif
+ifneq (,$(nonefiles))
+	-$(RM) -r -- $(nonefiles)
+endif
+#
+#
+#
+do-build: $(phptargets)
+#
+#
+#
+do-install:
+#todo later
+#ifneq (,$(strip $(phpactuals)))
+#	for %%f in ($(phpactuals)) do xcopy %%f $(subst /,\,$(installprefix)$(currdirectory)) /H /I /R /Y /F
+#endif
+#
+#################################################################################
+# FIN.										#
+#################################################################################

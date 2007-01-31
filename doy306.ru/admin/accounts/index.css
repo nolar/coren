@@ -1,0 +1,17 @@
+th			{ text-align: center; }
+td.accountstatus	{ text-align: center; width: 1px; }
+td.accountlogname	{ text-align:   left; }
+td.accountemail		{ text-align:   left; }
+td.accountcreated	{ text-align:   left; width: 1px; }
+td.accounttouched	{ text-align:   left; width: 1px; }
+
+.accountstatusdisabled	{ color:   red; }
+.accountstatusenabled	{ color: green; }
+
+.accountsmask		{ text-align: center; }
+.accountsmask form	{ display: inline; }
+
+.navigator		{ text-align: center; }
+.navigatorpagehead	{ font-weight: bold; }
+.navigatorpageself	{ }
+.navigatorpagelink	{ }

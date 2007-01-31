@@ -1,0 +1,17 @@
+.messagelistspacer	{ height: 1ex; }
+.messagelistsubject	{ text-align:    left; font-weight: bold; }
+.messagelistsource	{ text-align:    left; width: 1px; }
+.messagelistposted	{ text-align:   right; width: 1px; }
+
+.messageviewspacer	{ height: 1ex; }
+.messageviewsource	{ text-align:    left; font-size: 80%; font-weight: bold; }
+.messageviewposted	{ text-align:    left; font-size: 80%; font-weight: bold; }
+.messageviewsubject	{ text-align:    left; font-size: 80%; font-weight: bold; }
+.messageviewcontent	{ text-align: justify; }
+
+
+
+.navigator		{ text-align: right; }
+.navigatorpagehead	{ font-weight: bold; }
+.navigatorpageself	{ }
+.navigatorpagelink	{ }

@@ -1,0 +1,34 @@
+identify.account.detect?accountid		resultable
+identify.account.detect?information		resultable
+identify.account.detect!skipped
+identify.account.detect!failed
+identify.account.detect!failed(absent)
+identify.account.detect!failed(disabled)
+identify.account.detect!successed
+
+identify.session.detect?sessionid		resultable
+identify.session.detect!skipped
+identify.session.detect!failed
+identify.session.detect!failed(orphan)
+identify.session.detect!failed(absent)
+identify.session.detect!failed(expired)
+identify.session.detect!failed(closed)
+identify.session.detect!failed(halted)
+identify.session.detect!successed
+
+identify.session.start?context			resultable
+identify.session.start?credentials		resultable
+identify.session.start?acknowledge		resultable
+identify.session.start?sessionid		resultable
+identify.session.start!failed
+identify.session.start!failed(wrong)
+identify.session.start!failed(disabled)
+identify.session.start!failed(nothing)
+identify.session.start!successed
+
+identify.session.close?context			resultable
+identify.session.close?sessionid		resultable
+identify.session.close!failed
+identify.session.close!failed(already)
+identify.session.close!successed
+

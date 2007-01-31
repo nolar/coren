@@ -1,0 +1,25 @@
+http://coren.numeri.net/namespaces/coren/
+	data
+	@version
+	@name
+	@slot
+http://coren.numeri.net/namespaces/identify/
+	account-detect-failure
+	account-detect-success
+	session-detect-failure
+	session-detect-success
+	session-start-failure
+	session-start-success
+	session-close-failure
+	session-close-success
+
+http://coren.numeri.net/namespaces/message/
+	flush
+	message
+	limit
+	not-authorized
+	recipient
+	priority
+	subject
+	message
+	send

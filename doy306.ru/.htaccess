@@ -1,0 +1,53 @@
+Order allow,deny
+Allow from 127.0.0.1
+#Allow from 10.0.0.
+#Allow from 80.65.16.121
+#Allow from 192.168. 87.236.41.
+#Deny from all
+
+DirectoryIndex index.php
+AddType application/x-httpd-php .php
+
+<IfModule mod_rewrite.c>
+	RewriteEngine on
+
+#	RewriteCond %{REMOTE_ADDR} ^(87\.236\.41\.3|87\.103\.144\.156|127.0.0.1|10\..+|192\.168\..+|172\.16\..+)$
+#	RewriteCond %{REMOTE_ADDR} ^87.236.41.3$
+#	RewriteCond %{REMOTE_ADDR} ^87.103.144.156$
+#	RewriteRule .* - [L]
+#	RewriteRule ^updating.html$ - [S=1]
+#	RewriteRule .* /updating.html [L]
+
+#	RewriteRule .* - [E=REMOTE_USER:%{HTTP:Authorization},L]
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule ^(.*)$ index.php/$1 [L,QSA]
+</IfModule>
+
+#Action application/x-httpd-php "/cgi-bin/php-cgi.exe"
+#SetEnv PHPRC d:/internet
+
+
+<IfModule mod_php5.c>
+#  php_value include_path	".;modules;D:/internet/coren/.coren.trunk/engines;D:/internet/coren/.coren.trunk/modules/id"
+#  php_value include_path	".;D:/internet/coren/.coren.trunk/modules;D:/internet/coren/.coren.trunk/engines;D:/internet/coren/.coren.trunk/modules/id"
+#  php_value include_path	".;D:/internet/coren/.coren.trunk.enc/.coren.trunk/modules;D:/internet/coren/.coren.trunk.enc/.coren.trunk/engines;D:/internet/coren/.coren.trunk.enc/.coren.trunk/modules/id"
+  php_value display_errors	1
+  php_value track_errors	1
+</IfModule>
+
+
+<Files "core.php">
+	Order allow,deny
+	Deny from all
+</Files>
+<Files ".config.php">
+	Order allow,deny
+	Deny from all
+</Files>
+<Files "config.php">
+	Order allow,deny
+	Deny from all
+</Files>
+
