@@ -1,5 +1,5 @@
 <?php defined('CORENINPAGE') or die('Hack!');
-//todo: â áóäóùåì ïåğåäåëàòü picture_info() íà èñïîëüçîâàíèå êîíôèãóğèğóåìîãî ìîäóëÿ òèïà imager_0.php
+//todo: Ğ² Ğ±ÑƒĞ´ÑƒÑ‰ĞµĞ¼ Ğ¿ĞµÑ€ĞµĞ´ĞµĞ»Ğ°Ñ‚ÑŒ picture_info() Ğ½Ğ° Ğ¸ÑĞ¿Ğ¾Ğ»ÑŒĞ·Ğ¾Ğ²Ğ°Ğ½Ğ¸Ğµ ĞºĞ¾Ğ½Ñ„Ğ¸Ğ³ÑƒÑ€Ğ¸Ñ€ÑƒĞµĞ¼Ğ¾Ğ³Ğ¾ Ğ¼Ğ¾Ğ´ÑƒĞ»Ñ Ñ‚Ğ¸Ğ¿Ğ° imager_0.php
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -204,7 +204,7 @@ protected function do_parse_request ($args)
 	$itemid = core::find_scalar(array($args, $_GET, $_POST), array('id'    ), null);
 	$child  = core::find_scalar(array($args, $_GET, $_POST), array('child' ), null);
 
-	$submit = !empty($_POST);//todo: ïåğåäåëàòü íà áîëåå äîñòîâåğíûé êğèòåğèé (server[method]==post)
+	$submit = !empty($_POST);//todo: Ğ¿ĞµÑ€ĞµĞ´ĞµĞ»Ğ°Ñ‚ÑŒ Ğ½Ğ° Ğ±Ğ¾Ğ»ĞµĞµ Ğ´Ğ¾ÑÑ‚Ğ¾Ğ²ĞµÑ€Ğ½Ñ‹Ğ¹ ĞºÑ€Ğ¸Ñ‚ĞµÑ€Ğ¸Ğ¹ (server[method]==post)
 
 	if (!in_array($entity, array('child'))) $entity = null;
 	if (!in_array($action, array('append', 'modify', 'remove', 'list', 'item'))) $action = null;
@@ -395,9 +395,9 @@ protected function do_format ($entity, $action, $itemid, $item)
 	switch ($entity)
 	{
 		case 'child':
-//???			if (!in_array($action, array('list', 'massedit'))) .... äëÿ ñêîğîñòè ìîæíî ñîïòèìèçèğîâàòü.
+//???			if (!in_array($action, array('list', 'massedit'))) .... Ğ´Ğ»Ñ ÑĞºĞ¾Ñ€Ğ¾ÑÑ‚Ğ¸ Ğ¼Ğ¾Ğ¶Ğ½Ğ¾ ÑĞ¾Ğ¿Ñ‚Ğ¸Ğ¼Ğ¸Ğ·Ğ¸Ñ€Ğ¾Ğ²Ğ°Ñ‚ÑŒ.
 			$result['comment'] = $this->embed_children($entity, $itemid, $result['comment']);
-//???			if (!in_array($action, array('list', 'massedit'))) .... è òóò äëÿ îïòèìèçàöèè ïî ñêîğîñòè...
+//???			if (!in_array($action, array('list', 'massedit'))) .... Ğ¸ Ñ‚ÑƒÑ‚ Ğ´Ğ»Ñ Ğ¾Ğ¿Ñ‚Ğ¸Ğ¼Ğ¸Ğ·Ğ°Ñ†Ğ¸Ğ¸ Ğ¿Ğ¾ ÑĞºĞ¾Ñ€Ğ¾ÑÑ‚Ğ¸...
 			if (isset($this->format_ubb_module)) $result['comment'] = core::call($this->format_ubb_module, 'format', array('text'=>$result['comment']));
 			break;
 	}

@@ -203,7 +203,7 @@ protected function do_parse_request ($args)
 	$itemid = core::find_scalar(array($args, $_GET, $_POST), array('id'    ), null);
 	$child  = core::find_scalar(array($args, $_GET, $_POST), array('child' ), null);
 
-	$submit = !empty($_POST);//todo: ïåğåäåëàòü íà áîëåå äîñòîâåğíûé êğèòåğèé (server[method]==post)
+	$submit = !empty($_POST);//todo: Ğ¿ĞµÑ€ĞµĞ´ĞµĞ»Ğ°Ñ‚ÑŒ Ğ½Ğ° Ğ±Ğ¾Ğ»ĞµĞµ Ğ´Ğ¾ÑÑ‚Ğ¾Ğ²ĞµÑ€Ğ½Ñ‹Ğ¹ ĞºÑ€Ğ¸Ñ‚ĞµÑ€Ğ¸Ğ¹ (server[method]==post)
 
 	if (!in_array($entity, array('contest'))) $entity = null;
 	if (!in_array($action, array('append', 'modify', 'remove', 'list', 'item'))) $action = null;
@@ -387,12 +387,12 @@ protected function do_format ($entity, $action, $itemid, $item)
 	switch ($entity)
 	{
 		case 'contest':
-//???			if (!in_array($action, array('list', 'massedit'))) .... äëÿ ñêîğîñòè ìîæíî ñîïòèìèçèğîâàòü.
+//???			if (!in_array($action, array('list', 'massedit'))) .... Ğ´Ğ»Ñ ÑĞºĞ¾Ñ€Ğ¾ÑÑ‚Ğ¸ Ğ¼Ğ¾Ğ¶Ğ½Ğ¾ ÑĞ¾Ğ¿Ñ‚Ğ¸Ğ¼Ğ¸Ğ·Ğ¸Ñ€Ğ¾Ğ²Ğ°Ñ‚ÑŒ.
 			$result['title'   ] = $this->embed_children($entity, $itemid, $result['title'   ]);
 			$result['preamble'] = $this->embed_children($entity, $itemid, $result['preamble']);
 			$result['task'    ] = $this->embed_children($entity, $itemid, $result['task'    ]);
 			$result['results' ] = $this->embed_children($entity, $itemid, $result['results' ]);
-//???			if (!in_array($action, array('list', 'massedit'))) .... è òóò äëÿ îïòèìèçàöèè ïî ñêîğîñòè...
+//???			if (!in_array($action, array('list', 'massedit'))) .... Ğ¸ Ñ‚ÑƒÑ‚ Ğ´Ğ»Ñ Ğ¾Ğ¿Ñ‚Ğ¸Ğ¼Ğ¸Ğ·Ğ°Ñ†Ğ¸Ğ¸ Ğ¿Ğ¾ ÑĞºĞ¾Ñ€Ğ¾ÑÑ‚Ğ¸...
 			if (isset($this->format_ubb_module)) $result['title'   ] = core::call($this->format_ubb_module, 'format', array('text'=>$result['title'   ]));
 			if (isset($this->format_ubb_module)) $result['preamble'] = core::call($this->format_ubb_module, 'format', array('text'=>$result['preamble']));
 			if (isset($this->format_ubb_module)) $result['task'    ] = core::call($this->format_ubb_module, 'format', array('text'=>$result['task'    ]));

@@ -1,5 +1,5 @@
 <?php defined('CORENINPAGE') or die('Hack!');
-//todo: 1. ïğè óäàëåíèè êàòåãîğèè (èëè èçìåíåíèè åå èä) ìåíßòü ïîëß êàòåãîğèé â çàïèñßõ íà null èëè íà íîâîå çíà÷åíèå
+//todo: 1. Ğ¿Ñ€Ğ¸ ÑƒĞ´Ğ°Ğ»ĞµĞ½Ğ¸Ğ¸ ĞºĞ°Ñ‚ĞµĞ³Ğ¾Ñ€Ğ¸Ğ¸ (Ğ¸Ğ»Ğ¸ Ğ¸Ğ·Ğ¼ĞµĞ½ĞµĞ½Ğ¸Ğ¸ ĞµĞµ Ğ¸Ğ´) Ğ¼ĞµĞ½ÑÑ‚ÑŒ Ğ¿Ğ¾Ğ»Ñ ĞºĞ°Ñ‚ĞµĞ³Ğ¾Ñ€Ğ¸Ğ¹ Ğ² Ğ·Ğ°Ğ¿Ğ¸ÑÑÑ… Ğ½Ğ° null Ğ¸Ğ»Ğ¸ Ğ½Ğ° Ğ½Ğ¾Ğ²Ğ¾Ğµ Ğ·Ğ½Ğ°Ñ‡ĞµĞ½Ğ¸Ğµ
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -247,7 +247,7 @@ protected function do_parse_request ($args)
 	$itemid = core::find_scalar(array($args, $_GET, $_POST), array('id'    ), null);
 	$child  = core::find_scalar(array($args, $_GET, $_POST), array('child' ), null);
 
-	$submit = !empty($_POST);//todo: ïåğåäåëàòü íà áîëåå äîñòîâåğíûé êğèòåğèé (server[method]==post)
+	$submit = !empty($_POST);//todo: Ğ¿ĞµÑ€ĞµĞ´ĞµĞ»Ğ°Ñ‚ÑŒ Ğ½Ğ° Ğ±Ğ¾Ğ»ĞµĞµ Ğ´Ğ¾ÑÑ‚Ğ¾Ğ²ĞµÑ€Ğ½Ñ‹Ğ¹ ĞºÑ€Ğ¸Ñ‚ĞµÑ€Ğ¸Ğ¹ (server[method]==post)
 
 	if (!in_array($entity, array('category', 'article'))) $entity = null;
 	if (!in_array($action, array('append', 'modify', 'remove', 'list', 'item'))) $action = null;
@@ -526,13 +526,13 @@ protected function do_format ($entity, $action, $itemid, $item)
 			break;
 
 		case 'article':
-//???			if (!in_array($action, array('list', 'massedit'))) .... äëß ñêîğîñòè ìîæíî ñîïòèìèçèğîâàòü.
+//???			if (!in_array($action, array('list', 'massedit'))) .... Ğ´Ğ»Ñ ÑĞºĞ¾Ñ€Ğ¾ÑÑ‚Ğ¸ Ğ¼Ğ¾Ğ¶Ğ½Ğ¾ ÑĞ¾Ğ¿Ñ‚Ğ¸Ğ¼Ğ¸Ğ·Ğ¸Ñ€Ğ¾Ğ²Ğ°Ñ‚ÑŒ.
 			$result['headline'] = $this->embed_children($entity, $itemid, $result['headline']);
 			$result['announce'] = $this->embed_children($entity, $itemid, $result['announce']);
 			if (!in_array($action, array('list', 'massedit')))
 			$result['fulltext'] = $this->embed_children($entity, $itemid, $result['fulltext']);
 			$result['expander'] = $this->embed_children($entity, $itemid, $result['expander']);
-//???			if (!in_array($action, array('list', 'massedit'))) .... è òóò äëß îïòèìèçàöèè ïî ñêîğîñòè...
+//???			if (!in_array($action, array('list', 'massedit'))) .... Ğ¸ Ñ‚ÑƒÑ‚ Ğ´Ğ»Ñ Ğ¾Ğ¿Ñ‚Ğ¸Ğ¼Ğ¸Ğ·Ğ°Ñ†Ğ¸Ğ¸ Ğ¿Ğ¾ ÑĞºĞ¾Ñ€Ğ¾ÑÑ‚Ğ¸...
 			if (isset($this->format_ubb_module)) $result['headline'] = core::call($this->format_ubb_module, 'format', array('text'=>$result['headline']));
 			if (isset($this->format_ubb_module)) $result['announce'] = core::call($this->format_ubb_module, 'format', array('text'=>$result['announce']));
 			if (!in_array($action, array('list', 'massedit')))

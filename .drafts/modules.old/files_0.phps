@@ -95,8 +95,8 @@ protected function guess_item_fake ($entity, $parent, $submit)
 	    (!isset($submit['order'  ]) || ($submit['order'  ] == '')) &&
 	    (!isset($submit['caption']) || ($submit['caption'] == '')) &&
 	    (!isset($submit['comment']) || ($submit['comment'] == '')) &&
-	    (!isset($submit['file_storage']) || ($submit['file_storage'] == '')) &&//??? проверять только на непустость, или еще спросить у хранилища про наличие такого ид?
-	    //??? довольно-таки спорная проверка. а что если выбрано action=оставить без картинки, но файл подгружен. нужно ли добавлять такую ПУСТУЮ запись?
+	    (!isset($submit['file_storage']) || ($submit['file_storage'] == '')) &&//??? РїСЂРѕРІРµСЂСЏС‚СЊ С‚РѕР»СЊРєРѕ РЅР° РЅРµРїСѓСЃС‚РѕСЃС‚СЊ, РёР»Рё РµС‰Рµ СЃРїСЂРѕСЃРёС‚СЊ Сѓ С…СЂР°РЅРёР»РёС‰Р° РїСЂРѕ РЅР°Р»РёС‡РёРµ С‚Р°РєРѕРіРѕ РёРґ?
+	    //??? РґРѕРІРѕР»СЊРЅРѕ-С‚Р°РєРё СЃРїРѕСЂРЅР°СЏ РїСЂРѕРІРµСЂРєР°. Р° С‡С‚Рѕ РµСЃР»Рё РІС‹Р±СЂР°РЅРѕ action=РѕСЃС‚Р°РІРёС‚СЊ Р±РµР· РєР°СЂС‚РёРЅРєРё, РЅРѕ С„Р°Р№Р» РїРѕРґРіСЂСѓР¶РµРЅ. РЅСѓР¶РЅРѕ Р»Рё РґРѕР±Р°РІР»СЏС‚СЊ С‚Р°РєСѓСЋ РџРЈРЎРўРЈР® Р·Р°РїРёСЃСЊ?
 	    (!isset($submit['file_attach' ]) || !is_array($submit['file_attach']) || !isset($submit['file_attach']['tmp_name']) || !is_uploaded_file($submit['file_attach']['tmp_name'])) &&
 		true) return true;
 	return parent::guess_item_fake($entity, $parent, $submit);
@@ -215,11 +215,11 @@ protected function do_parse_request ($args)
 	$action = core::find_scalar(array($args, $_GET, $_POST), array('fileaction'     ), null);
 	$itemid = core::find_scalar(array($args, $_GET, $_POST), array('fileid'         ), null);
 
-	//!!! todo: сделать все префиксы конфигурируемым (FILEchild, FILEid, FILEaction...)
+	//!!! todo: СЃРґРµР»Р°С‚СЊ РІСЃРµ РїСЂРµС„РёРєСЃС‹ РєРѕРЅС„РёРіСѓСЂРёСЂСѓРµРјС‹Рј (FILEchild, FILEid, FILEaction...)
 	if (isset($_GET['filechild'])) $child = $_GET['filechild'];
 	else $child = null;
 
-	$submit = !empty($_POST);//todo: переделать на более достоверный критерий (server[method]==post)
+	$submit = !empty($_POST);//todo: РїРµСЂРµРґРµР»Р°С‚СЊ РЅР° Р±РѕР»РµРµ РґРѕСЃС‚РѕРІРµСЂРЅС‹Р№ РєСЂРёС‚РµСЂРёР№ (server[method]==post)
 
 	if (!in_array($entity, array('file'))) $entity = null;
 	if (!in_array($action, array('append', 'modify', 'remove', 'list', 'item', 'file'))) $action = null;
@@ -394,10 +394,10 @@ protected function do_format ($entity, $action, $itemid, $item)
 	switch ($entity)
 	{
 		case 'file':
-//???			if (!in_array($action, array('list', 'massedit'))) .... для скорости можно соптимизировать.
+//???			if (!in_array($action, array('list', 'massedit'))) .... РґР»СЏ СЃРєРѕСЂРѕСЃС‚Рё РјРѕР¶РЅРѕ СЃРѕРїС‚РёРјРёР·РёСЂРѕРІР°С‚СЊ.
 			$result['caption'] = $this->embed_children($entity, $itemid, $result['caption']);
 			$result['comment'] = $this->embed_children($entity, $itemid, $result['comment']);
-//???			if (!in_array($action, array('list', 'massedit'))) .... и тут для оптимизации по скорости...
+//???			if (!in_array($action, array('list', 'massedit'))) .... Рё С‚СѓС‚ РґР»СЏ РѕРїС‚РёРјРёР·Р°С†РёРё РїРѕ СЃРєРѕСЂРѕСЃС‚Рё...
 			if (isset($this->format_ubb_module)) $result['caption'] = core::call($this->format_ubb_module, 'format', array('text'=>$result['caption']));
 			if (isset($this->format_ubb_module)) $result['comment'] = core::call($this->format_ubb_module, 'format', array('text'=>$result['comment']));
 			break;
@@ -446,8 +446,8 @@ protected function do_show_form ($entity, $action, $overaccess, $itemaccess, $fi
 			}
 		} else
 		{
-			//!!! сказать что файл не была залит, сгенериррован, или вообще не сохранилсЯ.
-			//!!!. или вывести картинку дефолтную (призрака заглушку).
+			//!!! СЃРєР°Р·Р°С‚СЊ С‡С‚Рѕ С„Р°Р№Р» РЅРµ Р±С‹Р»Р° Р·Р°Р»РёС‚, СЃРіРµРЅРµСЂРёСЂСЂРѕРІР°РЅ, РёР»Рё РІРѕРѕР±С‰Рµ РЅРµ СЃРѕС…СЂР°РЅРёР»СЃРЇ.
+			//!!!. РёР»Рё РІС‹РІРµСЃС‚Рё РєР°СЂС‚РёРЅРєСѓ РґРµС„РѕР»С‚РЅСѓСЋ (РїСЂРёР·СЂР°РєР° Р·Р°РіР»СѓС€РєСѓ).
 		}
 	} else
 	return parent::do_show_form($entity, $action, $overaccess, $itemaccess, $filter, $parent, $itemid, $itemold, $itemnew, $itemoldf, $itemnewf, $errors, $children);;

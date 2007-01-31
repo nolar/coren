@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="cp1251"?>
+<?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet
 	xmlns:xsl      = "http://www.w3.org/1999/XSL/Transform"
 	xmlns:identify = "http://coren.numeri.net/namespaces/identify/"

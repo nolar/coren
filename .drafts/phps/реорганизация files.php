@@ -3,7 +3,7 @@
 #################################  R E Q U E S T    P A R S I N G  #################################
 ####################################################################################################
 /*
-//!!!!! этим делом должно заниматься не ядро, а специальные модули. !!!!
+//!!!!! СЌС‚РёРј РґРµР»РѕРј РґРѕР»Р¶РЅРѕ Р·Р°РЅРёРјР°С‚СЊСЃСЏ РЅРµ СЏРґСЂРѕ, Р° СЃРїРµС†РёР°Р»СЊРЅС‹Рµ РјРѕРґСѓР»Рё. !!!!
 #
 # HTTP requests are assumed to be of some special structure. PHP supports structural fields in
 # GET/POST/FILES/COOKIE superglobal arrays. Coren use this ability to structurize input fields by

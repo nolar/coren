@@ -72,8 +72,8 @@ public function upload ($args)
 	if (!is_readable($path)) return;
 
 	//!!!todo: normalize $name to be strict(?) - i.e. only alphanum in name. but keep an extension.
-	//!!!todo: èëè êîäèğîâàòü ğóññêèå èìåíà â óğëàõ áîëåå æåñòêî; òàê, ÷òîáû îíè ïğàâèëüíî åğåäàâàëèñü íà ñåğâåğ?
-	//!!!todo: êîäèğîâàòü íå ïîëó÷èòñÿ, òàê êàê îíî êîäèğóåò åùå è âñå ñëåøè â ïóòè, â òîì ÷èñëå ìåæäó id è filename.
+	//!!!todo: Ğ¸Ğ»Ğ¸ ĞºĞ¾Ğ´Ğ¸Ñ€Ğ¾Ğ²Ğ°Ñ‚ÑŒ Ñ€ÑƒÑÑĞºĞ¸Ğµ Ğ¸Ğ¼ĞµĞ½Ğ° Ğ² ÑƒÑ€Ğ»Ğ°Ñ… Ğ±Ğ¾Ğ»ĞµĞµ Ğ¶ĞµÑÑ‚ĞºĞ¾; Ñ‚Ğ°Ğº, Ñ‡Ñ‚Ğ¾Ğ±Ñ‹ Ğ¾Ğ½Ğ¸ Ğ¿Ñ€Ğ°Ğ²Ğ¸Ğ»ÑŒĞ½Ğ¾ ĞµÑ€ĞµĞ´Ğ°Ğ²Ğ°Ğ»Ğ¸ÑÑŒ Ğ½Ğ° ÑĞµÑ€Ğ²ĞµÑ€?
+	//!!!todo: ĞºĞ¾Ğ´Ğ¸Ñ€Ğ¾Ğ²Ğ°Ñ‚ÑŒ Ğ½Ğµ Ğ¿Ğ¾Ğ»ÑƒÑ‡Ğ¸Ñ‚ÑÑ, Ñ‚Ğ°Ğº ĞºĞ°Ğº Ğ¾Ğ½Ğ¾ ĞºĞ¾Ğ´Ğ¸Ñ€ÑƒĞµÑ‚ ĞµÑ‰Ğµ Ğ¸ Ğ²ÑĞµ ÑĞ»ĞµÑˆĞ¸ Ğ² Ğ¿ÑƒÑ‚Ğ¸, Ğ² Ñ‚Ğ¾Ğ¼ Ñ‡Ğ¸ÑĞ»Ğµ Ğ¼ĞµĞ¶Ğ´Ñƒ id Ğ¸ filename.
 
 	do {
 		$id = sprintf("%06d", rand(0, 1000000-1));//!!!todo: make it more unique
@@ -92,7 +92,7 @@ public function upload ($args)
 		if (!is_null($this->umask)) umask($oldmask);
 		throw new exception("Can not make dir '{$tempdir}' for temporary place" . (isset($php_errormsg) ? ": " . $php_errormsg : "") . ".");
 	}
-	//todo: ïûòàòüñÿ äåëàòü æåñòêèé ëèíê, è òîüëêî åñëè îí íå óäàëñÿ - äåëàòü êîïèş. link($path, $tempfile)
+	//todo: Ğ¿Ñ‹Ñ‚Ğ°Ñ‚ÑŒÑÑ Ğ´ĞµĞ»Ğ°Ñ‚ÑŒ Ğ¶ĞµÑÑ‚ĞºĞ¸Ğ¹ Ğ»Ğ¸Ğ½Ğº, Ğ¸ Ñ‚Ğ¾ÑŒĞ»ĞºĞ¾ ĞµÑĞ»Ğ¸ Ğ¾Ğ½ Ğ½Ğµ ÑƒĞ´Ğ°Ğ»ÑÑ - Ğ´ĞµĞ»Ğ°Ñ‚ÑŒ ĞºĞ¾Ğ¿Ğ¸Ñ. link($path, $tempfile)
 	if (@copy($path, $tempfile) === false)
 	{
 		if (!is_null($this->umask)) umask($oldmask);

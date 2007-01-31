@@ -1,8 +1,8 @@
-<!-- òðè ìàãè÷åñêèõ øàáëîíà -->
+<!-- Ñ‚Ñ€Ð¸ Ð¼Ð°Ð³Ð¸Ñ‡ÐµÑÐºÐ¸Ñ… ÑˆÐ°Ð±Ð»Ð¾Ð½Ð° -->
 
 
 
-<!-- 1. îáùèé -->
+<!-- 1. Ð¾Ð±Ñ‰Ð¸Ð¹ -->
 <xsl:template match="*">
     <xsl:copy>
         <xsl:apply-templates select="@*" />
@@ -12,14 +12,14 @@
 
 
 
-<!-- 2. äëÿ òåêñòà -->
+<!-- 2. Ð´Ð»Ñ Ñ‚ÐµÐºÑÑ‚Ð° -->
 <xsl:template match="text()">
     <xsl:value-of select="." disable-output-escaping="yes"/>
 </xsl:template>
 
 
 
-<!-- 3. äëÿ òåãîâ è àòòðèáóòîâ -->
+<!-- 3. Ð´Ð»Ñ Ñ‚ÐµÐ³Ð¾Ð² Ð¸ Ð°Ñ‚Ñ‚Ñ€Ð¸Ð±ÑƒÑ‚Ð¾Ð² -->
 <xsl:template match="@*|node()">
     <xsl:copy>
         <xsl:apply-templates select="@*|node()"/>

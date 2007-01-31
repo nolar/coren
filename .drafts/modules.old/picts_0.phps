@@ -121,9 +121,9 @@ protected function guess_item_fake ($entity, $parent, $submit)
 	    (!isset($submit['order'  ]) || ($submit['order'  ] == '')) &&
 	    (!isset($submit['caption']) || ($submit['caption'] == '')) &&
 	    (!isset($submit['comment']) || ($submit['comment'] == '')) &&
-	    (!isset($submit['image_storage']) || ($submit['image_storage'] == '')) &&//??? проверять только на непустость, или еще спросить у хранилища про наличие такого ид?
-	    (!isset($submit['thumb_storage']) || ($submit['thumb_storage'] == '')) &&//??? проверять только на непустость, или еще спросить у хранилища про наличие такого ид?
-	    //??? довольно-таки спорная проверка. а что если выбрано action=оставить без картинки, но файл подгружен. нужно ли добавлять такую ПУСТУЮ запись?
+	    (!isset($submit['image_storage']) || ($submit['image_storage'] == '')) &&//??? РїСЂРѕРІРµСЂСЏС‚СЊ С‚РѕР»СЊРєРѕ РЅР° РЅРµРїСѓСЃС‚РѕСЃС‚СЊ, РёР»Рё РµС‰Рµ СЃРїСЂРѕСЃРёС‚СЊ Сѓ С…СЂР°РЅРёР»РёС‰Р° РїСЂРѕ РЅР°Р»РёС‡РёРµ С‚Р°РєРѕРіРѕ РёРґ?
+	    (!isset($submit['thumb_storage']) || ($submit['thumb_storage'] == '')) &&//??? РїСЂРѕРІРµСЂСЏС‚СЊ С‚РѕР»СЊРєРѕ РЅР° РЅРµРїСѓСЃС‚РѕСЃС‚СЊ, РёР»Рё РµС‰Рµ СЃРїСЂРѕСЃРёС‚СЊ Сѓ С…СЂР°РЅРёР»РёС‰Р° РїСЂРѕ РЅР°Р»РёС‡РёРµ С‚Р°РєРѕРіРѕ РёРґ?
+	    //??? РґРѕРІРѕР»СЊРЅРѕ-С‚Р°РєРё СЃРїРѕСЂРЅР°СЏ РїСЂРѕРІРµСЂРєР°. Р° С‡С‚Рѕ РµСЃР»Рё РІС‹Р±СЂР°РЅРѕ action=РѕСЃС‚Р°РІРёС‚СЊ Р±РµР· РєР°СЂС‚РёРЅРєРё, РЅРѕ С„Р°Р№Р» РїРѕРґРіСЂСѓР¶РµРЅ. РЅСѓР¶РЅРѕ Р»Рё РґРѕР±Р°РІР»СЏС‚СЊ С‚Р°РєСѓСЋ РџРЈРЎРўРЈР® Р·Р°РїРёСЃСЊ?
 	    (!isset($submit['image_attach' ]) || !is_array($submit['image_attach']) || !isset($submit['image_attach']['tmp_name']) || !is_uploaded_file($submit['image_attach']['tmp_name'])) &&
 	    (!isset($submit['thumb_attach' ]) || !is_array($submit['thumb_attach']) || !isset($submit['thumb_attach']['tmp_name']) || !is_uploaded_file($submit['thumb_attach']['tmp_name'])) &&
 		true) return true;
@@ -244,11 +244,11 @@ protected function do_parse_request ($args)
 	$action = core::find_scalar(array($args, $_GET, $_POST), array('pictaction'     ), null);
 	$itemid = core::find_scalar(array($args, $_GET, $_POST), array('pictid'         ), null);
 
-	//!!! todo: сделать все префиксы конфигурируемым (PICTchild, PICTid, PICTaction...)
+	//!!! todo: СЃРґРµР»Р°С‚СЊ РІСЃРµ РїСЂРµС„РёРєСЃС‹ РєРѕРЅС„РёРіСѓСЂРёСЂСѓРµРјС‹Рј (PICTchild, PICTid, PICTaction...)
 	if (isset($_GET['pictchild'])) $child = $_GET['pictchild'];
 	else $child = null;
 
-	$submit = !empty($_POST);//todo: переделать на более достоверный критерий (server[method]==post)
+	$submit = !empty($_POST);//todo: РїРµСЂРµРґРµР»Р°С‚СЊ РЅР° Р±РѕР»РµРµ РґРѕСЃС‚РѕРІРµСЂРЅС‹Р№ РєСЂРёС‚РµСЂРёР№ (server[method]==post)
 
 	if (!in_array($entity, array('picture'))) $entity = null;
 	if (!in_array($action, array('append', 'modify', 'remove', 'list', 'item', 'thumb', 'image'))) $action = null;
@@ -380,8 +380,8 @@ protected function do_handle ($entity, $action, $itemid, $itemold, $submit)
 					$imagerargs = array();
 					$imagerargs['nowx'  ] = array_key_exists('image_xsize', $result) ? $result['image_xsize'] : $itemold['image_xsize'];
 					$imagerargs['nowy'  ] = array_key_exists('image_ysize', $result) ? $result['image_ysize'] : $itemold['image_ysize'];
-					$imagerargs['limitx'] = 100;//??? но ведь не константами это долэжно быть. может конфиг?
-					$imagerargs['limity'] = 100;//??? но ведь не константами это долэжно быть. может конфиг?
+					$imagerargs['limitx'] = 100;//??? РЅРѕ РІРµРґСЊ РЅРµ РєРѕРЅСЃС‚Р°РЅС‚Р°РјРё СЌС‚Рѕ РґРѕР»СЌР¶РЅРѕ Р±С‹С‚СЊ. РјРѕР¶РµС‚ РєРѕРЅС„РёРі?
+					$imagerargs['limity'] = 100;//??? РЅРѕ РІРµРґСЊ РЅРµ РєРѕРЅСЃС‚Р°РЅС‚Р°РјРё СЌС‚Рѕ РґРѕР»СЌР¶РЅРѕ Р±С‹С‚СЊ. РјРѕР¶РµС‚ РєРѕРЅС„РёРі?
 					list($x, $y) = core::call($this->imager_module, 'calculate', $imagerargs);
 
 					$storageargs = array();
@@ -468,7 +468,7 @@ protected function do_handle ($entity, $action, $itemid, $itemold, $submit)
 					break;
 
 				default:
-					// неизвестный режим превьюшки. ничего не делать. чтобы ничего не испортить.
+					// РЅРµРёР·РІРµСЃС‚РЅС‹Р№ СЂРµР¶РёРј РїСЂРµРІСЊСЋС€РєРё. РЅРёС‡РµРіРѕ РЅРµ РґРµР»Р°С‚СЊ. С‡С‚РѕР±С‹ РЅРёС‡РµРіРѕ РЅРµ РёСЃРїРѕСЂС‚РёС‚СЊ.
 			}
 
 			break;
@@ -556,10 +556,10 @@ protected function do_format ($entity, $action, $itemid, $item)
 	switch ($entity)
 	{
 		case 'picture':
-//???			if (!in_array($action, array('list', 'massedit'))) .... для скорости можно соптимизировать.
+//???			if (!in_array($action, array('list', 'massedit'))) .... РґР»СЏ СЃРєРѕСЂРѕСЃС‚Рё РјРѕР¶РЅРѕ СЃРѕРїС‚РёРјРёР·РёСЂРѕРІР°С‚СЊ.
 			$result['caption'] = $this->embed_children($entity, $itemid, $result['caption']);
 			$result['comment'] = $this->embed_children($entity, $itemid, $result['comment']);
-//???			if (!in_array($action, array('list', 'massedit'))) .... и тут для оптимизации по скорости...
+//???			if (!in_array($action, array('list', 'massedit'))) .... Рё С‚СѓС‚ РґР»СЏ РѕРїС‚РёРјРёР·Р°С†РёРё РїРѕ СЃРєРѕСЂРѕСЃС‚Рё...
 			if (isset($this->format_ubb_module)) $result['caption'] = core::call($this->format_ubb_module, 'format', array('text'=>$result['caption']));
 			if (isset($this->format_ubb_module)) $result['comment'] = core::call($this->format_ubb_module, 'format', array('text'=>$result['comment']));
 			break;
@@ -621,8 +621,8 @@ protected function do_show_form ($entity, $action, $overaccess, $itemaccess, $fi
 			}
 		} else
 		{
-			//!!! сказать что картинка не была залита, сгенериррована, или вообще не сохранилась.
-			//!!!. или вывести картинку дефолтную (призрака заглушку).
+			//!!! СЃРєР°Р·Р°С‚СЊ С‡С‚Рѕ РєР°СЂС‚РёРЅРєР° РЅРµ Р±С‹Р»Р° Р·Р°Р»РёС‚Р°, СЃРіРµРЅРµСЂРёСЂСЂРѕРІР°РЅР°, РёР»Рё РІРѕРѕР±С‰Рµ РЅРµ СЃРѕС…СЂР°РЅРёР»Р°СЃСЊ.
+			//!!!. РёР»Рё РІС‹РІРµСЃС‚Рё РєР°СЂС‚РёРЅРєСѓ РґРµС„РѕР»С‚РЅСѓСЋ (РїСЂРёР·СЂР°РєР° Р·Р°РіР»СѓС€РєСѓ).
 		}
 	} else
 	if (($entity == 'picture') and ($action == 'thumb'))
@@ -637,8 +637,8 @@ protected function do_show_form ($entity, $action, $overaccess, $itemaccess, $fi
 			}
 		} else
 		{
-			//!!! сказать что картинка не была залита, сгенериррована, или вообще не сохранилась.
-			//!!!. или вывести картинку дефолтную (призрака заглушку).
+			//!!! СЃРєР°Р·Р°С‚СЊ С‡С‚Рѕ РєР°СЂС‚РёРЅРєР° РЅРµ Р±С‹Р»Р° Р·Р°Р»РёС‚Р°, СЃРіРµРЅРµСЂРёСЂСЂРѕРІР°РЅР°, РёР»Рё РІРѕРѕР±С‰Рµ РЅРµ СЃРѕС…СЂР°РЅРёР»Р°СЃСЊ.
+			//!!!. РёР»Рё РІС‹РІРµСЃС‚Рё РєР°СЂС‚РёРЅРєСѓ РґРµС„РѕР»С‚РЅСѓСЋ (РїСЂРёР·СЂР°РєР° Р·Р°РіР»СѓС€РєСѓ).
 		}
 	} else
 	return parent::do_show_form($entity, $action, $overaccess, $itemaccess, $filter, $parent, $itemid, $itemold, $itemnew, $itemoldf, $itemnewf, $errors, $children);

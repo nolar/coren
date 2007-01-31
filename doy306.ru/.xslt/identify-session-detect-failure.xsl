@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="cp1251"?>
+<?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet
 	xmlns:xsl      = "http://www.w3.org/1999/XSL/Transform"
 	xmlns:identify = "http://coren.numeri.net/namespaces/identify/"
@@ -7,8 +7,8 @@
 
 <xsl:template match='identify:session-detect-failure'
 identify:dummy="" xsl:exclude-result-prefixes="identify">
-	Wow! Ваша сессия прекращена из-за ошибки <xsl:value-of select="identify:code"/>.
-	Перевойди! (И тут ссылока входа на страницу перевхода).
+	Wow! Р’Р°С€Р° СЃРµСЃСЃРёСЏ РїСЂРµРєСЂР°С‰РµРЅР° РёР·-Р·Р° РѕС€РёР±РєРё <xsl:value-of select="identify:code"/>.
+	РџРµСЂРµРІРѕР№РґРё! (Р С‚СѓС‚ СЃСЃС‹Р»РѕРєР° РІС…РѕРґР° РЅР° СЃС‚СЂР°РЅРёС†Сѓ РїРµСЂРµРІС…РѕРґР°).
 </xsl:template>
 
 

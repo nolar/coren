@@ -197,9 +197,9 @@ protected function do_parse_request ($args)
 	$entity = core::find_scalar(array($args, $_GET, $_POST), array('entity'), null);
 	$action = core::find_scalar(array($args, $_GET, $_POST), array('action'), null);
 	$itemid = core::find_scalar(array($args, $_GET, $_POST), array('id'    ), null);
-	$child  = core::find_scalar(array($args, $_GET, $_POST), array('child' ), null);//!!! already done: ïåðåñåêàåòñß ñ ïîëåì äàííûõ. ââåñòè îáßçàòåëüíûå ïåðôèêñû äëß ïîëåé äàííûõ!
+	$child  = core::find_scalar(array($args, $_GET, $_POST), array('child' ), null);//!!! already done: Ð¿ÐµÑ€ÐµÑÐµÐºÐ°ÐµÑ‚ÑÐ¯ Ñ Ð¿Ð¾Ð»ÐµÐ¼ Ð´Ð°Ð½Ð½Ñ‹Ñ…. Ð²Ð²ÐµÑÑ‚Ð¸ Ð¾Ð±Ð¯Ð·Ð°Ñ‚ÐµÐ»ÑŒÐ½Ñ‹Ðµ Ð¿ÐµÑ€Ñ„Ð¸ÐºÑÑ‹ Ð´Ð»Ð¯ Ð¿Ð¾Ð»ÐµÐ¹ Ð´Ð°Ð½Ð½Ñ‹Ñ…!
 
-	$submit = !empty($_POST);//todo: ïåðåäåëàòü íà áîëåå äîñòîâåðíûé êðèòåðèé (server[method]==post)
+	$submit = !empty($_POST);//todo: Ð¿ÐµÑ€ÐµÐ´ÐµÐ»Ð°Ñ‚ÑŒ Ð½Ð° Ð±Ð¾Ð»ÐµÐµ Ð´Ð¾ÑÑ‚Ð¾Ð²ÐµÑ€Ð½Ñ‹Ð¹ ÐºÑ€Ð¸Ñ‚ÐµÑ€Ð¸Ð¹ (server[method]==post)
 
 	if (!in_array($entity, array('article'))) $entity = null;
 	if (!in_array($action, array('append', 'modify', 'remove', 'list', 'item'))) $action = null;
@@ -324,12 +324,12 @@ protected function do_verify ($entity, $action, $itemid, $itemnew, $itemold)
 	switch ($entity)
 	{
 		case 'article':
-			//todo: ãðóáîå ðåøåíèå äëÿ ìíîãîøàãîâîãî ïîèñêà â ôîðìå. â ñëó÷àå, åñëè ðåáåíîê íå óêàçàí,
-			//todo: ìû ýìóëèðóåì îøèáêó, è ôîðìà âûâåäåòñÿ çàíîâî (áóäü òî åäèíè÷íàÿ èëè ñïèñêîâàÿ).
-			//todo: à îøèáêó ìû âûäàåì â òîì ñëó÷àå, êîãäà â êà÷åñòâå ðåáåíêà óêàçàíî ñïåöèàüëíîå çíà÷åíèå
-			//todo: íîëü (0) èëè ïóñòàÿ ñòðîêà (""). ðåàëüíàÿ ðàçíèöà ìåæäó ýòèìè ñïåö-çíà÷åíèÿìè
-			//todo: ïðîÿâëÿåòñÿ ëèøü â øàáëîíå (àêòèâèðóþòñÿ ðàçíûå radio èíïóòû).
-			//todo: â áóäóùåì íàäî ïåðåäåëàòü òàêóþ ìíîãîøàãîâîñòü íà áîëåå àäåêâàòíîå ðåøåíèå.
+			//todo: Ð³Ñ€ÑƒÐ±Ð¾Ðµ Ñ€ÐµÑˆÐµÐ½Ð¸Ðµ Ð´Ð»Ñ Ð¼Ð½Ð¾Ð³Ð¾ÑˆÐ°Ð³Ð¾Ð²Ð¾Ð³Ð¾ Ð¿Ð¾Ð¸ÑÐºÐ° Ð² Ñ„Ð¾Ñ€Ð¼Ðµ. Ð² ÑÐ»ÑƒÑ‡Ð°Ðµ, ÐµÑÐ»Ð¸ Ñ€ÐµÐ±ÐµÐ½Ð¾Ðº Ð½Ðµ ÑƒÐºÐ°Ð·Ð°Ð½,
+			//todo: Ð¼Ñ‹ ÑÐ¼ÑƒÐ»Ð¸Ñ€ÑƒÐµÐ¼ Ð¾ÑˆÐ¸Ð±ÐºÑƒ, Ð¸ Ñ„Ð¾Ñ€Ð¼Ð° Ð²Ñ‹Ð²ÐµÐ´ÐµÑ‚ÑÑ Ð·Ð°Ð½Ð¾Ð²Ð¾ (Ð±ÑƒÐ´ÑŒ Ñ‚Ð¾ ÐµÐ´Ð¸Ð½Ð¸Ñ‡Ð½Ð°Ñ Ð¸Ð»Ð¸ ÑÐ¿Ð¸ÑÐºÐ¾Ð²Ð°Ñ).
+			//todo: Ð° Ð¾ÑˆÐ¸Ð±ÐºÑƒ Ð¼Ñ‹ Ð²Ñ‹Ð´Ð°ÐµÐ¼ Ð² Ñ‚Ð¾Ð¼ ÑÐ»ÑƒÑ‡Ð°Ðµ, ÐºÐ¾Ð³Ð´Ð° Ð² ÐºÐ°Ñ‡ÐµÑÑ‚Ð²Ðµ Ñ€ÐµÐ±ÐµÐ½ÐºÐ° ÑƒÐºÐ°Ð·Ð°Ð½Ð¾ ÑÐ¿ÐµÑ†Ð¸Ð°ÑŒÐ»Ð½Ð¾Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ
+			//todo: Ð½Ð¾Ð»ÑŒ (0) Ð¸Ð»Ð¸ Ð¿ÑƒÑÑ‚Ð°Ñ ÑÑ‚Ñ€Ð¾ÐºÐ° (""). Ñ€ÐµÐ°Ð»ÑŒÐ½Ð°Ñ Ñ€Ð°Ð·Ð½Ð¸Ñ†Ð° Ð¼ÐµÐ¶Ð´Ñƒ ÑÑ‚Ð¸Ð¼Ð¸ ÑÐ¿ÐµÑ†-Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸ÑÐ¼Ð¸
+			//todo: Ð¿Ñ€Ð¾ÑÐ²Ð»ÑÐµÑ‚ÑÑ Ð»Ð¸ÑˆÑŒ Ð² ÑˆÐ°Ð±Ð»Ð¾Ð½Ðµ (Ð°ÐºÑ‚Ð¸Ð²Ð¸Ñ€ÑƒÑŽÑ‚ÑÑ Ñ€Ð°Ð·Ð½Ñ‹Ðµ radio Ð¸Ð½Ð¿ÑƒÑ‚Ñ‹).
+			//todo: Ð² Ð±ÑƒÐ´ÑƒÑ‰ÐµÐ¼ Ð½Ð°Ð´Ð¾ Ð¿ÐµÑ€ÐµÐ´ÐµÐ»Ð°Ñ‚ÑŒ Ñ‚Ð°ÐºÑƒÑŽ Ð¼Ð½Ð¾Ð³Ð¾ÑˆÐ°Ð³Ð¾Ð²Ð¾ÑÑ‚ÑŒ Ð½Ð° Ð±Ð¾Ð»ÐµÐµ Ð°Ð´ÐµÐºÐ²Ð°Ñ‚Ð½Ð¾Ðµ Ñ€ÐµÑˆÐµÐ½Ð¸Ðµ.
 			if (($action == 'append') || ($action == 'modify'))
 			{
 				if ($itemnew['child'] == 0) $result[] = 'need_child_pseudo_error';
@@ -390,10 +390,10 @@ protected function do_format ($entity, $action, $itemid, $item)
 	switch ($entity)
 	{
 		case 'article':
-//???			if (!in_array($action, array('list', 'massedit'))) .... äëÿ ñêîðîñòè ìîæíî ñîïòèìèçèðîâàòü.
+//???			if (!in_array($action, array('list', 'massedit'))) .... Ð´Ð»Ñ ÑÐºÐ¾Ñ€Ð¾ÑÑ‚Ð¸ Ð¼Ð¾Ð¶Ð½Ð¾ ÑÐ¾Ð¿Ñ‚Ð¸Ð¼Ð¸Ð·Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ.
 			$result['title'      ] = $this->embed_children($entity, $itemid, $result['title'      ]);
 			$result['description'] = $this->embed_children($entity, $itemid, $result['description']);
-//???			if (!in_array($action, array('list', 'massedit'))) .... è òóò äëÿ îïòèìèçàöèè ïî ñêîðîñòè...
+//???			if (!in_array($action, array('list', 'massedit'))) .... Ð¸ Ñ‚ÑƒÑ‚ Ð´Ð»Ñ Ð¾Ð¿Ñ‚Ð¸Ð¼Ð¸Ð·Ð°Ñ†Ð¸Ð¸ Ð¿Ð¾ ÑÐºÐ¾Ñ€Ð¾ÑÑ‚Ð¸...
 			if (isset($this->format_ubb_module)) $result['title'      ] = core::call($this->format_ubb_module, 'format', array('text'=>$result['title'      ]));
 			if (isset($this->format_ubb_module)) $result['description'] = core::call($this->format_ubb_module, 'format', array('text'=>$result['description']));
 			break;

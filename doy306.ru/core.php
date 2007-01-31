@@ -3,6 +3,6 @@ define('COREN_CONFIGURATION_FILE', $_SERVER['DOCUMENT_ROOT'] . '/core.xml');
 define('COREN_FATAL_ACTION', 'verbose');
 require(dirname(__FILE__) . "/../.coren/coren.php");
 #require(dirname(__FILE__) . "/../.coren.trunk-/coren.php");
-//!!! ñäåëàòü ïîóìíåå, ÷òîáû ññûëêà áûëà âñå-òàêè îòíîñèòåëüíîé. ÷åðåç include_path?
-//!!! è ïåðåèìåíîâàòü ýòîò ôàéë â core_alias.php (èëè íå íàäî?)
+//!!! ÑÐ´ÐµÐ»Ð°Ñ‚ÑŒ Ð¿Ð¾ÑƒÐ¼Ð½ÐµÐµ, Ñ‡Ñ‚Ð¾Ð±Ñ‹ ÑÑÑ‹Ð»ÐºÐ° Ð±Ñ‹Ð»Ð° Ð²ÑÐµ-Ñ‚Ð°ÐºÐ¸ Ð¾Ñ‚Ð½Ð¾ÑÐ¸Ñ‚ÐµÐ»ÑŒÐ½Ð¾Ð¹. Ñ‡ÐµÑ€ÐµÐ· include_path?
+//!!! Ð¸ Ð¿ÐµÑ€ÐµÐ¸Ð¼ÐµÐ½Ð¾Ð²Ð°Ñ‚ÑŒ ÑÑ‚Ð¾Ñ‚ Ñ„Ð°Ð¹Ð» Ð² core_alias.php (Ð¸Ð»Ð¸ Ð½Ðµ Ð½Ð°Ð´Ð¾?)
 ?>

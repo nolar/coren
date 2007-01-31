@@ -88,7 +88,7 @@ protected function do_read_list ($entity, $filter, $parent, $itemid, &$meta)
 			$fname = isset($filter['fname']) ? $filter['fname'] : null;
 			$sname = isset($filter['sname']) ? $filter['sname'] : null;
 			$tname = isset($filter['tname']) ? $filter['tname'] : null;
-			//!!! è ïğî÷èå ïîèñêîâûå ïîëÿ
+			//!!! Ğ¸ Ğ¿Ñ€Ğ¾Ñ‡Ğ¸Ğµ Ğ¿Ğ¾Ğ¸ÑĞºĞ¾Ğ²Ñ‹Ğµ Ğ¿Ğ¾Ğ»Ñ
 			$page = (integer) core::find_scalar(array($filter), array('page'), $this->default_page);
 			$size = (integer) core::find_scalar(array($filter), array('size'), $this->default_size);
 			$skip = (integer) core::find_scalar(array($filter), array('skip'), $this->default_skip);

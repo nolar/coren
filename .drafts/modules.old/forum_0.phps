@@ -357,15 +357,15 @@ protected function do_parse_request ($args)
 	if (($entity == 'topic') && is_null($itemid)) $itemid = core::find_scalar(array($args, $_POST, $_GET), array('t'), null);
 	if (($entity == 'message') && is_null($itemid)) $itemid = core::find_scalar(array($args, $_POST, $_GET), array('m'), null);
 
-	$submit = !empty($_POST);//todo: ïåðåäåëàòü íà áîëåå äîñòîâåðíûé êðèòåðèé (server[method]==post)
+	$submit = !empty($_POST);//todo: Ð¿ÐµÑ€ÐµÐ´ÐµÐ»Ð°Ñ‚ÑŒ Ð½Ð° Ð±Ð¾Ð»ÐµÐµ Ð´Ð¾ÑÑ‚Ð¾Ð²ÐµÑ€Ð½Ñ‹Ð¹ ÐºÑ€Ð¸Ñ‚ÐµÑ€Ð¸Ð¹ (server[method]==post)
 
 	if (!in_array($entity, array('forum', 'topic', 'message'))) $entity = null;
 	if (!in_array($action, array('append', 'modify', 'remove', 'list', 'item'))) $action = null;
 	if (is_null($action)) $action = isset($itemid) ? 'item' : 'list';
 
-	//!!!todo: ÷åòêî îòñëåäèòü òóò çàïðåò íà ðßä äåéñòâèé: message.item, message.list, topic.list.
-	//!!!todo: ýòè äåéñòâèß ÷åðåç parse_request íå ïðîõîäßò, à âûçûâàþòñß òîüëêî íàïðßìóþ ÷åðåç show_list,
-	//!!!todo: è ïîòîìó äîñòóïíû â access'àõ.
+	//!!!todo: Ñ‡ÐµÑ‚ÐºÐ¾ Ð¾Ñ‚ÑÐ»ÐµÐ´Ð¸Ñ‚ÑŒ Ñ‚ÑƒÑ‚ Ð·Ð°Ð¿Ñ€ÐµÑ‚ Ð½Ð° Ñ€ÑÐ´ Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ð¹: message.item, message.list, topic.list.
+	//!!!todo: ÑÑ‚Ð¸ Ð´ÐµÐ¹ÑÑ‚Ð²Ð¸Ñ Ñ‡ÐµÑ€ÐµÐ· parse_request Ð½Ðµ Ð¿Ñ€Ð¾Ñ…Ð¾Ð´ÑÑ‚, Ð° Ð²Ñ‹Ð·Ñ‹Ð²Ð°ÑŽÑ‚ÑÑ Ñ‚Ð¾ÑŒÐ»ÐºÐ¾ Ð½Ð°Ð¿Ñ€ÑÐ¼ÑƒÑŽ Ñ‡ÐµÑ€ÐµÐ· show_list,
+	//!!!todo: Ð¸ Ð¿Ð¾Ñ‚Ð¾Ð¼Ñƒ Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð½Ñ‹ Ð² access'Ð°Ñ….
 
 	$filter = array();
 	$filter['page'   ] = core::find_scalar(array($args, $_POST, $_GET), array('page'   ), null);
@@ -441,7 +441,7 @@ protected function do_read_list ($entity, $filter, $parent, $itemid, &$meta)
 			$reverse = (string ) (isset($filter['reverse']) ? $filter['reverse'] : $this->default_reverse);
 			$forum   = (string ) (isset($filter['forum'  ]) ? $filter['forum'  ] : null);
 
-			//!!!todo: ‚€†Ž!!! ïðîâåðèòü ÷òî ýòîò $forum id íàì ðàçðåøåí íà ÷òåíèå; åñëè íåò - ýìóëèðîâàòü îòñóòñòâèå òîïèêà.
+			//!!!todo: Ð’ÐÐ–ÐÐž!!! Ð¿Ñ€Ð¾Ð²ÐµÑ€Ð¸Ñ‚ÑŒ Ñ‡Ñ‚Ð¾ ÑÑ‚Ð¾Ñ‚ $forum id Ð½Ð°Ð¼ Ñ€Ð°Ð·Ñ€ÐµÑˆÐµÐ½ Ð½Ð° Ñ‡Ñ‚ÐµÐ½Ð¸Ðµ; ÐµÑÐ»Ð¸ Ð½ÐµÑ‚ - ÑÐ¼ÑƒÐ»Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ Ð¾Ñ‚ÑÑƒÑ‚ÑÑ‚Ð²Ð¸Ðµ Ñ‚Ð¾Ð¿Ð¸ÐºÐ°.
 
 			$count = core::db('select_topics_count', compact('parent', 'itemid', 'forum'));
 			if ($skip > $count) $skip = $count;
@@ -494,7 +494,7 @@ protected function do_read_list ($entity, $filter, $parent, $itemid, &$meta)
 			$reverse = (string ) (isset($filter['reverse']) ? $filter['reverse'] : $this->default_reverse);
 			$topic   = (string ) (isset($filter['topic'  ]) ? $filter['topic'  ] : null);
 
-			//!!!todo: ‚€†Ž!!! ïðîâåðèòü ÷òî ýòîò $topic id íàì ðàçðåøåí íà ÷òåíèå (â ò.÷. ïî ôîðóìó); åñëè íåò - ýìóëèðîâàòü îòñóòñòâèå ìåññàãè.
+			//!!!todo: Ð’ÐÐ–ÐÐž!!! Ð¿Ñ€Ð¾Ð²ÐµÑ€Ð¸Ñ‚ÑŒ Ñ‡Ñ‚Ð¾ ÑÑ‚Ð¾Ñ‚ $topic id Ð½Ð°Ð¼ Ñ€Ð°Ð·Ñ€ÐµÑˆÐµÐ½ Ð½Ð° Ñ‡Ñ‚ÐµÐ½Ð¸Ðµ (Ð² Ñ‚.Ñ‡. Ð¿Ð¾ Ñ„Ð¾Ñ€ÑƒÐ¼Ñƒ); ÐµÑÐ»Ð¸ Ð½ÐµÑ‚ - ÑÐ¼ÑƒÐ»Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ Ð¾Ñ‚ÑÑƒÑ‚ÑÑ‚Ð²Ð¸Ðµ Ð¼ÐµÑÑÐ°Ð³Ð¸.
 
 			$count = core::db('select_messages_count', compact('parent', 'itemid', 'topic'));
 			if ($skip > $count) $skip = $count;
@@ -793,10 +793,10 @@ protected function do_format ($entity, $action, $itemid, $item)
 
 		case 'message':
 			$result['text'] = htmlspecialchars($result['text']);
-//???			if (!in_array($action, array('list', 'massedit'))) .... äëß ñêîðîñòè ìîæíî ñîïòèìèçèðîâàòü.
+//???			if (!in_array($action, array('list', 'massedit'))) .... Ð´Ð»Ñ ÑÐºÐ¾Ñ€Ð¾ÑÑ‚Ð¸ Ð¼Ð¾Ð¶Ð½Ð¾ ÑÐ¾Ð¿Ñ‚Ð¸Ð¼Ð¸Ð·Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ.
 //			if (!in_array($action, array('list', 'massedit')))
 			$result['text'] = $this->embed_children($entity, $itemid, $result['text']);
-//???			if (!in_array($action, array('list', 'massedit'))) .... è òóò äëß îïòèìèçàöèè ïî ñêîðîñòè...
+//???			if (!in_array($action, array('list', 'massedit'))) .... Ð¸ Ñ‚ÑƒÑ‚ Ð´Ð»Ñ Ð¾Ð¿Ñ‚Ð¸Ð¼Ð¸Ð·Ð°Ñ†Ð¸Ð¸ Ð¿Ð¾ ÑÐºÐ¾Ñ€Ð¾ÑÑ‚Ð¸...
 //			if (!in_array($action, array('list', 'massedit')))
 			if (isset($this->format_ubb_module)) $result['text'] = core::call($this->format_ubb_module, 'format', array('text'=>$result['text']));
 			break;

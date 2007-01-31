@@ -231,11 +231,11 @@ protected function do_parse_request ($args)
 	$action = core::find_scalar(array($args, $_POST, $_GET), array('noteaction'     ), null);
 	$itemid = core::find_scalar(array($args, $_POST, $_GET), array('noteid'         ), null);
 
-	//!!! todo: ñäåëàòü âñå ïğåôèêñû êîíôèãóğèğóåìûì (notechild, noteid, noteaction...)
+	//!!! todo: ÑĞ´ĞµĞ»Ğ°Ñ‚ÑŒ Ğ²ÑĞµ Ğ¿Ñ€ĞµÑ„Ğ¸ĞºÑÑ‹ ĞºĞ¾Ğ½Ñ„Ğ¸Ğ³ÑƒÑ€Ğ¸Ñ€ÑƒĞµĞ¼Ñ‹Ğ¼ (notechild, noteid, noteaction...)
 	if (isset($_GET['notechild'])) $child = $_GET['notechild'];
 	else $child = null;
 
-	$submit = !empty($_POST);//todo: ïåğåäåëàòü íà áîëåå äîñòîâåğíûé êğèòåğèé (server[method]==post)
+	$submit = !empty($_POST);//todo: Ğ¿ĞµÑ€ĞµĞ´ĞµĞ»Ğ°Ñ‚ÑŒ Ğ½Ğ° Ğ±Ğ¾Ğ»ĞµĞµ Ğ´Ğ¾ÑÑ‚Ğ¾Ğ²ĞµÑ€Ğ½Ñ‹Ğ¹ ĞºÑ€Ğ¸Ñ‚ĞµÑ€Ğ¸Ğ¹ (server[method]==post)
 
 	if (!in_array($entity, array('note'))) $entity = null;
 	if (!in_array($action, array('append', 'modify', 'remove', 'list', 'item', 'post', 'reply'))) $action = null;
@@ -399,10 +399,10 @@ protected function do_format ($entity, $action, $itemid, $item)
 		case 'note':
 			$result['text' ] = htmlspecialchars($result['text' ]);
 			$result['reply'] = htmlspecialchars($result['reply']);
-//???			if (!in_array($action, array('list', 'massedit'))) .... äëß ñêîğîñòè ìîæíî ñîïòèìèçèğîâàòü.
+//???			if (!in_array($action, array('list', 'massedit'))) .... Ğ´Ğ»Ñ ÑĞºĞ¾Ñ€Ğ¾ÑÑ‚Ğ¸ Ğ¼Ğ¾Ğ¶Ğ½Ğ¾ ÑĞ¾Ğ¿Ñ‚Ğ¸Ğ¼Ğ¸Ğ·Ğ¸Ñ€Ğ¾Ğ²Ğ°Ñ‚ÑŒ.
 			$result['text' ] = $this->embed_children($entity, $itemid, $result['text' ]);
 			$result['reply'] = $this->embed_children($entity, $itemid, $result['reply']);
-//???			if (!in_array($action, array('list', 'massedit'))) .... è òóò äëß îïòèìèçàöèè ïî ñêîğîñòè...
+//???			if (!in_array($action, array('list', 'massedit'))) .... Ğ¸ Ñ‚ÑƒÑ‚ Ğ´Ğ»Ñ Ğ¾Ğ¿Ñ‚Ğ¸Ğ¼Ğ¸Ğ·Ğ°Ñ†Ğ¸Ğ¸ Ğ¿Ğ¾ ÑĞºĞ¾Ñ€Ğ¾ÑÑ‚Ğ¸...
 			if (isset($this->format_ubb_module)) $result['text' ] = core::call($this->format_ubb_module, 'format', array('text'=>$result['text' ]));
 			if (isset($this->format_ubb_module)) $result['reply'] = core::call($this->format_ubb_module, 'format', array('text'=>$result['reply']));
 			break;

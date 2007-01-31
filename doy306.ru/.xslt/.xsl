@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="cp1251"?>
+<?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet
 	xmlns:xsl      = "http://www.w3.org/1999/XSL/Transform"
 	xmlns:identify = "http://coren.numeri.net/namespaces/identify/"
@@ -7,15 +7,15 @@
 
 <xsl:output method="html" indent="yes" encoding="utf-8" />
 
-<!-- �� �⮡� ���� �� ����ࠡ�⠭�� ⥣� �� ����⥬� �����䨪�樨 -->
+<!-- это чтобы убрать все необработанные теги из подситемы идентификации -->
 <xsl:template match='identify:abc' identify:dummy="" xsl:exclude-result-prefixes="identify">
 </xsl:template>
 
-<!-- �� �⮡� ���� ����� �� ����ࠡ�⠭�� ⥣� -->
+<!-- это чтобы убрать вообще все необработанные теги -->
 <xsl:template match="*">
 </xsl:template>
 
-<!-- �� �⮡� ����ࠡ�⠭�� ⥣� ���஢����� 楫����, � �� ⮫쪮 ⥪�⮬ -->
+<!-- это чтобы необработанные теги копровались целиком, а не только текстом -->
 <xsl:template match="*">
     <xsl:copy>
         <xsl:apply-templates select="@*" />

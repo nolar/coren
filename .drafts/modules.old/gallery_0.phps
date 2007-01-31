@@ -247,7 +247,7 @@ protected function do_parse_request ($args)
 	if (isset($_GET['child'])) $child = $_GET['child'];
 	else $child = null;
 
-	$submit = !empty($_POST);//todo: переделать на более достоверный критерий (server[method]==post)
+	$submit = !empty($_POST);//todo: РїРµСЂРµРґРµР»Р°С‚СЊ РЅР° Р±РѕР»РµРµ РґРѕСЃС‚РѕРІРµСЂРЅС‹Р№ РєСЂРёС‚РµСЂРёР№ (server[method]==post)
 
 	if (!in_array($action, array('append', 'modify', 'remove', 'list', 'item', 'image', 'nicon', 'picon'))) $action = null;
 	if (is_null($action)) $action = isset($itemid) ? 'item' : 'list';
@@ -403,7 +403,7 @@ protected function do_handle ($entity, $action, $itemid, $itemold, $submit)
 			//todo: all here. use uploaded thumb if it is uploaded together or after image, or generate new thumb on image upload
 			break;
 		default:
-			// неизвестный режим превьюшки. ничего не делать. чтобы ничего не испортить.
+			// РЅРµРёР·РІРµСЃС‚РЅС‹Р№ СЂРµР¶РёРј РїСЂРµРІСЊСЋС€РєРё. РЅРёС‡РµРіРѕ РЅРµ РґРµР»Р°С‚СЊ. С‡С‚РѕР±С‹ РЅРёС‡РµРіРѕ РЅРµ РёСЃРїРѕСЂС‚РёС‚СЊ.
 	}
 
 	$mode = isset($submit ['picon_mode']) && ($submit ['picon_mode'] != 0) ? $submit ['picon_mode'] : (
@@ -470,7 +470,7 @@ protected function do_handle ($entity, $action, $itemid, $itemold, $submit)
 			//todo: all here. use uploaded thumb if it is uploaded together or after image, or generate new thumb on image upload
 			break;
 		default:
-			// неизвестный режим превьюшки. ничего не делать. чтобы ничего не испортить.
+			// РЅРµРёР·РІРµСЃС‚РЅС‹Р№ СЂРµР¶РёРј РїСЂРµРІСЊСЋС€РєРё. РЅРёС‡РµРіРѕ РЅРµ РґРµР»Р°С‚СЊ. С‡С‚РѕР±С‹ РЅРёС‡РµРіРѕ РЅРµ РёСЃРїРѕСЂС‚РёС‚СЊ.
 	}
 
 	return $result;
@@ -577,10 +577,10 @@ protected function do_show_form ($entity, $action, $overaccess, $itemaccess, $fi
 				return;//?? phrase: you was redirected to....
 			}
 		}
-		//!!! сказать что картинка не была залита, сгенериррована, или вообще не сохранилась.
-		//!!!. или вывести картинку дефолтную (призрака заглушку).
+		//!!! СЃРєР°Р·Р°С‚СЊ С‡С‚Рѕ РєР°СЂС‚РёРЅРєР° РЅРµ Р±С‹Р»Р° Р·Р°Р»РёС‚Р°, СЃРіРµРЅРµСЂРёСЂСЂРѕРІР°РЅР°, РёР»Рё РІРѕРѕР±С‰Рµ РЅРµ СЃРѕС…СЂР°РЅРёР»Р°СЃСЊ.
+		//!!!. РёР»Рё РІС‹РІРµСЃС‚Рё РєР°СЂС‚РёРЅРєСѓ РґРµС„РѕР»С‚РЅСѓСЋ (РїСЂРёР·СЂР°РєР° Р·Р°РіР»СѓС€РєСѓ).
 
-		//!!! А на самом деле это не наша забота редиректить. Это должен модуль хранилища сделать или passthrough, или редирект.
+		//!!! Рђ РЅР° СЃР°РјРѕРј РґРµР»Рµ СЌС‚Рѕ РЅРµ РЅР°С€Р° Р·Р°Р±РѕС‚Р° СЂРµРґРёСЂРµРєС‚РёС‚СЊ. Р­С‚Рѕ РґРѕР»Р¶РµРЅ РјРѕРґСѓР»СЊ С…СЂР°РЅРёР»РёС‰Р° СЃРґРµР»Р°С‚СЊ РёР»Рё passthrough, РёР»Рё СЂРµРґРёСЂРµРєС‚.
 
 		core::shutup();
 	} else
@@ -598,8 +598,8 @@ protected function do_show_form ($entity, $action, $overaccess, $itemaccess, $fi
 				return;//?? phrase: you was redirected to....
 			}
 		}
-		//!!! сказать что картинка не была залита, сгенериррована, или вообще не сохранилась.
-		//!!!. или вывести картинку дефолтную (призрака заглушку).
+		//!!! СЃРєР°Р·Р°С‚СЊ С‡С‚Рѕ РєР°СЂС‚РёРЅРєР° РЅРµ Р±С‹Р»Р° Р·Р°Р»РёС‚Р°, СЃРіРµРЅРµСЂРёСЂСЂРѕРІР°РЅР°, РёР»Рё РІРѕРѕР±С‰Рµ РЅРµ СЃРѕС…СЂР°РЅРёР»Р°СЃСЊ.
+		//!!!. РёР»Рё РІС‹РІРµСЃС‚Рё РєР°СЂС‚РёРЅРєСѓ РґРµС„РѕР»С‚РЅСѓСЋ (РїСЂРёР·СЂР°РєР° Р·Р°РіР»СѓС€РєСѓ).
 
 		core::shutup();
 	} else
@@ -617,8 +617,8 @@ protected function do_show_form ($entity, $action, $overaccess, $itemaccess, $fi
 				return;//?? phrase: you was redirected to....
 			}
 		}
-		//!!! сказать что картинка не была залита, сгенериррована, или вообще не сохранилась.
-		//!!!. или вывести картинку дефолтную (призрака заглушку).
+		//!!! СЃРєР°Р·Р°С‚СЊ С‡С‚Рѕ РєР°СЂС‚РёРЅРєР° РЅРµ Р±С‹Р»Р° Р·Р°Р»РёС‚Р°, СЃРіРµРЅРµСЂРёСЂСЂРѕРІР°РЅР°, РёР»Рё РІРѕРѕР±С‰Рµ РЅРµ СЃРѕС…СЂР°РЅРёР»Р°СЃСЊ.
+		//!!!. РёР»Рё РІС‹РІРµСЃС‚Рё РєР°СЂС‚РёРЅРєСѓ РґРµС„РѕР»С‚РЅСѓСЋ (РїСЂРёР·СЂР°РєР° Р·Р°РіР»СѓС€РєСѓ).
 
 		core::shutup();
 	} else

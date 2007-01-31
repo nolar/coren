@@ -1,8 +1,8 @@
 <?php defined('CORENINPAGE') or die('Hack!');
 
 
-//todo: 3. ëèáî èç çàïğîñà äîáûâàòü äåôîëòíûé account_id (íî âñå ğàâíî íóæåí åãî ëîãèí äëÿ ôîğìû).
-//todo: 4. mailer è îïîâåùåíèÿ ïî ìûëó.
+//todo: 3. Ğ»Ğ¸Ğ±Ğ¾ Ğ¸Ğ· Ğ·Ğ°Ğ¿Ñ€Ğ¾ÑĞ° Ğ´Ğ¾Ğ±Ñ‹Ğ²Ğ°Ñ‚ÑŒ Ğ´ĞµÑ„Ğ¾Ğ»Ñ‚Ğ½Ñ‹Ğ¹ account_id (Ğ½Ğ¾ Ğ²ÑĞµ Ñ€Ğ°Ğ²Ğ½Ğ¾ Ğ½ÑƒĞ¶ĞµĞ½ ĞµĞ³Ğ¾ Ğ»Ğ¾Ğ³Ğ¸Ğ½ Ğ´Ğ»Ñ Ñ„Ğ¾Ñ€Ğ¼Ñ‹).
+//todo: 4. mailer Ğ¸ Ğ¾Ğ¿Ğ¾Ğ²ĞµÑ‰ĞµĞ½Ğ¸Ñ Ğ¿Ğ¾ Ğ¼Ñ‹Ğ»Ñƒ.
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -198,7 +198,7 @@ protected function do_parse_request ($args)
 	$itemid = core::find_scalar(array($args, $_GET, $_POST), array('id'    ), null);
 	$child  = core::find_scalar(array($args, $_GET, $_POST), array('child' ), null);
 
-	$submit = !empty($_POST);//todo: ïåğåäåëàòü íà áîëåå äîñòîâåğíûé êğèòåğèé (server[method]==post)
+	$submit = !empty($_POST);//todo: Ğ¿ĞµÑ€ĞµĞ´ĞµĞ»Ğ°Ñ‚ÑŒ Ğ½Ğ° Ğ±Ğ¾Ğ»ĞµĞµ Ğ´Ğ¾ÑÑ‚Ğ¾Ğ²ĞµÑ€Ğ½Ñ‹Ğ¹ ĞºÑ€Ğ¸Ñ‚ĞµÑ€Ğ¸Ğ¹ (server[method]==post)
 
 	if ($action == 'post') $action = 'append';
 
@@ -276,10 +276,10 @@ protected function do_read_list ($entity, $filter, $parent, $itemid, &$meta)
 				if (isset($item['target']) && array_key_exists($item['target'], $data_accounts)) $items[$key]['target_'] = $data_accounts[$item['target']];
 			}
 
-			//todo: òèïà òàê ìû ïîìå÷àåì ÷òî ñîîáùåíèå áûëî ïğî÷èòàíî. íà ñàìîì äåëå íàäî ïğèäóìàòü ÷åãî ïîóìíåå.
-			//todo: action íå ïğîâåğÿåì, òàê êàê îí íå ïåğåäàåòñÿ (à çğÿ), íî íàì è íå âàæíî. ó íàñ åñòü òîëüêî
-			//todo: òğè äåéñòâèÿ: list, item, append. âñå îñòàëüíûå, êîòîğûå ÷èòàşò ñïèñîê (modify/remove), â ıòîì
-			//todo: ìîäóëå íå èñïîëüçóşòñÿ. òàê ÷òî ñïîêîéíî îïğåäåëÿåì ÷òî action=item ïî íàëè÷èş îäíîãî itemid.
+			//todo: Ñ‚Ğ¸Ğ¿Ğ° Ñ‚Ğ°Ğº Ğ¼Ñ‹ Ğ¿Ğ¾Ğ¼ĞµÑ‡Ğ°ĞµĞ¼ Ñ‡Ñ‚Ğ¾ ÑĞ¾Ğ¾Ğ±Ñ‰ĞµĞ½Ğ¸Ğµ Ğ±Ñ‹Ğ»Ğ¾ Ğ¿Ñ€Ğ¾Ñ‡Ğ¸Ñ‚Ğ°Ğ½Ğ¾. Ğ½Ğ° ÑĞ°Ğ¼Ğ¾Ğ¼ Ğ´ĞµĞ»Ğµ Ğ½Ğ°Ğ´Ğ¾ Ğ¿Ñ€Ğ¸Ğ´ÑƒĞ¼Ğ°Ñ‚ÑŒ Ñ‡ĞµĞ³Ğ¾ Ğ¿Ğ¾ÑƒĞ¼Ğ½ĞµĞµ.
+			//todo: action Ğ½Ğµ Ğ¿Ñ€Ğ¾Ğ²ĞµÑ€ÑĞµĞ¼, Ñ‚Ğ°Ğº ĞºĞ°Ğº Ğ¾Ğ½ Ğ½Ğµ Ğ¿ĞµÑ€ĞµĞ´Ğ°ĞµÑ‚ÑÑ (Ğ° Ğ·Ñ€Ñ), Ğ½Ğ¾ Ğ½Ğ°Ğ¼ Ğ¸ Ğ½Ğµ Ğ²Ğ°Ğ¶Ğ½Ğ¾. Ñƒ Ğ½Ğ°Ñ ĞµÑÑ‚ÑŒ Ñ‚Ğ¾Ğ»ÑŒĞºĞ¾
+			//todo: Ñ‚Ñ€Ğ¸ Ğ´ĞµĞ¹ÑÑ‚Ğ²Ğ¸Ñ: list, item, append. Ğ²ÑĞµ Ğ¾ÑÑ‚Ğ°Ğ»ÑŒĞ½Ñ‹Ğµ, ĞºĞ¾Ñ‚Ğ¾Ñ€Ñ‹Ğµ Ñ‡Ğ¸Ñ‚Ğ°ÑÑ‚ ÑĞ¿Ğ¸ÑĞ¾Ğº (modify/remove), Ğ² ÑÑ‚Ğ¾Ğ¼
+			//todo: Ğ¼Ğ¾Ğ´ÑƒĞ»Ğµ Ğ½Ğµ Ğ¸ÑĞ¿Ğ¾Ğ»ÑŒĞ·ÑƒÑÑ‚ÑÑ. Ñ‚Ğ°Ğº Ñ‡Ñ‚Ğ¾ ÑĞ¿Ğ¾ĞºĞ¾Ğ¹Ğ½Ğ¾ Ğ¾Ğ¿Ñ€ĞµĞ´ĞµĞ»ÑĞµĞ¼ Ñ‡Ñ‚Ğ¾ action=item Ğ¿Ğ¾ Ğ½Ğ°Ğ»Ğ¸Ñ‡Ğ¸Ñ Ğ¾Ğ´Ğ½Ğ¾Ğ³Ğ¾ itemid.
 			if (isset($itemid) && ($itemid != ''))
 			{
 				core::db('readup_message', compact('itemid'));
@@ -391,9 +391,9 @@ protected function do_format ($entity, $action, $itemid, $item)
 	switch ($entity)
 	{
 		case 'message':
-//???			if (!in_array($action, array('list', 'massedit'))) .... äëß ñêîğîñòè ìîæíî ñîïòèìèçèğîâàòü.
+//???			if (!in_array($action, array('list', 'massedit'))) .... Ğ´Ğ»Ğ¯ ÑĞºĞ¾Ñ€Ğ¾ÑÑ‚Ğ¸ Ğ¼Ğ¾Ğ¶Ğ½Ğ¾ ÑĞ¾Ğ¿Ñ‚Ğ¸Ğ¼Ğ¸Ğ·Ğ¸Ñ€Ğ¾Ğ²Ğ°Ñ‚ÑŒ.
 			$result['content'] = $this->embed_children($entity, $itemid, $result['content']);
-//???			if (!in_array($action, array('list', 'massedit'))) .... è òóò äëß îïòèìèçàöèè ïî ñêîğîñòè...
+//???			if (!in_array($action, array('list', 'massedit'))) .... Ğ¸ Ñ‚ÑƒÑ‚ Ğ´Ğ»Ğ¯ Ğ¾Ğ¿Ñ‚Ğ¸Ğ¼Ğ¸Ğ·Ğ°Ñ†Ğ¸Ğ¸ Ğ¿Ğ¾ ÑĞºĞ¾Ñ€Ğ¾ÑÑ‚Ğ¸...
 			if (isset($this->format_ubb_module)) $result['content'] = core::call($this->format_ubb_module, 'format', array('text'=>$result['content']));
 			break;
 	}

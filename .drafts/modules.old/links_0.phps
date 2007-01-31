@@ -195,11 +195,11 @@ protected function do_parse_request ($args)
 	$action = core::find_scalar(array($args, $_GET, $_POST), array('linkaction'     ), null);
 	$itemid = core::find_scalar(array($args, $_GET, $_POST), array('linkid'         ), null);
 
-	//!!! todo: ñäåëàòü âñå ïðåôèêñû êîíôèãóðèðóåìûì (LINKchild, LINKid, LINKaction...)
+	//!!! todo: ÑÐ´ÐµÐ»Ð°Ñ‚ÑŒ Ð²ÑÐµ Ð¿Ñ€ÐµÑ„Ð¸ÐºÑÑ‹ ÐºÐ¾Ð½Ñ„Ð¸Ð³ÑƒÑ€Ð¸Ñ€ÑƒÐµÐ¼Ñ‹Ð¼ (LINKchild, LINKid, LINKaction...)
 	if (isset($_GET['linkchild'])) $child = $_GET['linkchild'];
 	else $child = null;
 
-	$submit = !empty($_POST);//todo: ïåðåäåëàòü íà áîëåå äîñòîâåðíûé êðèòåðèé (server[method]==post)
+	$submit = !empty($_POST);//todo: Ð¿ÐµÑ€ÐµÐ´ÐµÐ»Ð°Ñ‚ÑŒ Ð½Ð° Ð±Ð¾Ð»ÐµÐµ Ð´Ð¾ÑÑ‚Ð¾Ð²ÐµÑ€Ð½Ñ‹Ð¹ ÐºÑ€Ð¸Ñ‚ÐµÑ€Ð¸Ð¹ (server[method]==post)
 
 	if (!in_array($entity, array('link'))) $entity = null;
 	if (!in_array($action, array('append', 'modify', 'remove', 'list', 'item', 'thumb', 'image'))) $action = null;
@@ -334,9 +334,9 @@ protected function do_format ($entity, $action, $itemid, $item)
 	switch ($entity)
 	{
 		case 'link':
-//???			if (!in_array($action, array('list', 'massedit'))) .... äëÿ ñêîðîñòè ìîæíî ñîïòèìèçèðîâàòü.
+//???			if (!in_array($action, array('list', 'massedit'))) .... Ð´Ð»Ñ ÑÐºÐ¾Ñ€Ð¾ÑÑ‚Ð¸ Ð¼Ð¾Ð¶Ð½Ð¾ ÑÐ¾Ð¿Ñ‚Ð¸Ð¼Ð¸Ð·Ð¸Ñ€Ð¾Ð²Ð°Ñ‚ÑŒ.
 			$result['text'] = $this->embed_children($entity, $itemid, $result['text']);
-//???			if (!in_array($action, array('list', 'massedit'))) .... è òóò äëÿ îïòèìèçàöèè ïî ñêîðîñòè...
+//???			if (!in_array($action, array('list', 'massedit'))) .... Ð¸ Ñ‚ÑƒÑ‚ Ð´Ð»Ñ Ð¾Ð¿Ñ‚Ð¸Ð¼Ð¸Ð·Ð°Ñ†Ð¸Ð¸ Ð¿Ð¾ ÑÐºÐ¾Ñ€Ð¾ÑÑ‚Ð¸...
 			if (isset($this->format_ubb_module)) $result['text'] = core::call($this->format_ubb_module, 'format', array('text'=>$result['text']));
 			break;
 	}
